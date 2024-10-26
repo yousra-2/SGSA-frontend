@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { EtudiantDashboardComponent } from './Components/etudiant-dashboard/etudiant-dashboard.component';
 import { EnseignantDashboardComponent } from './Components/enseignant-dashboard/enseignant-dashboard.component';
 import { DirecteurDashboardComponent } from './Components/directeur-dashboard/directeur-dashboard.component';
+import { EtudiantNotesComponent } from './Components/etudiant-notes/etudiant-notes.component';
+import { EtudiantAttestationComponent } from './Components/etudiant-attestation/etudiant-attestation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DirecteurDashboardComponent } from './Components/directeur-dashboard/di
     LoginComponent,
     EtudiantDashboardComponent,
     EnseignantDashboardComponent,
-    DirecteurDashboardComponent
+    DirecteurDashboardComponent,
+    EtudiantNotesComponent,
+    EtudiantAttestationComponent
   ],
   imports: [
     BrowserModule,

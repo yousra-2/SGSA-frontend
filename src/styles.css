@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'ClassyFont';
+    src: url('/assets/fonts/classycb9b.eot');
+    src: url('/assets/fonts/classycb9b.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/classycb9b.woff') format('woff'),
+         url('/assets/fonts/classycb9b.ttf') format('truetype'),
+         url('/assets/fonts/classycb9b.svg#classyfonts') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

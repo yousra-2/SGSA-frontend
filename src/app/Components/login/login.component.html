@@ -1,6 +1,6 @@
 <!-- <p>login works!</p> -->
 
-<div class="login-container">
+<!-- <div class="login-container">
     <div *ngIf="errorMessage" class="error">
         {{ errorMessage }}
       </div>
@@ -17,5 +17,352 @@
         <button type="submit">Se connecter</button>
       </div>
     </form>
-  </div>
+  </div> -->
+
+  <html>
+
+<head>
+    
+    
+    
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+   
+
+    <!-- Stylesheet -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span> +212. 512. 345. 678</a>
+                <a href="#"><span>Email:</span> <span class="__cf_email__" data-cfemail="b4dddad2dbf4d7d8d1c2d1c69ad7dbd9">ensa.gmail.com</span></a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="clever-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="cleverNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index-2.html"><img src="" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul style="cursor: pointer;">
+                                <li><a (click)="scrollTo('home')">Home</a></li>
+                                <li><a (click)="scrollTo('login')">Login</a>
+                                  
+                                </li>
+                                <li><a (click)="scrollTo('users')">Users</a></li>
+                                <li><a (click)="scrollTo('contact')">Contact</a></li>
+                            </ul>
+
+                            <!-- Search Button -->
+                            <div class="search-area">
+                                <form action="#" method="post">
+                                    <input type="search" name="search" id="search" placeholder="Search">
+                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- Register / Login -->
+                            <!-- <div class="register-login-area"> -->
+                                <!-- <a href="#" class="btn">Register</a> -->
+                                <!-- <a href="#login-section" class="btn active">Login</a>
+                            </div> -->
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url(assets/img/bg-img/bg1.jpg);" #homeSection id="home-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    <div class="hero-content text-center">
+                        <h2>Cliquez pour commencer</h2>
+                        <a (click)="scrollTo('login')" class="btn clever-btn">Commencer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area section-padding-100-0">
+        <div class="container">
+            <div class="cool-facts-row"> <!-- Utilisez votre classe personnalisée ici -->
+                <!-- Single Cool Facts Area -->
+                <div class="single-cool-facts-area wow fadeInUp" data-wow-delay="600ms">
+                    <div class="icon text-center">
+                        <img src="assets/img/core-img/docs.png" alt="">
+                    </div>
+                    <h2 class="text-center">{{ filiereCount | number: '1.0-0' }}</h2>
+                    <h5 class="text-center">Filières</h5>
+                </div>
+    
+                <!-- Single Cool Facts Area -->
+                <div class="single-cool-facts-area wow fadeInUp" data-wow-delay="500ms">
+                    <div class="icon text-center">
+                        <img src="assets/img/core-img/star.png" alt="">
+                    </div>
+                    <h2 class="text-center">{{ enseignantsCount | number: '1.0-0' }}</h2>
+                    <h5 class="text-center">Enseignants</h5>
+                </div>
+    
+                <!-- Single Cool Facts Area -->
+                <div class="single-cool-facts-area wow fadeInUp" data-wow-delay="1000ms">
+                    <div class="icon text-center">
+                        <img src="assets/img/core-img/earth.png" alt="">
+                    </div>
+                    <h2 class="text-center">{{ etudiantsCount | number: '1.0-0' }}</h2>
+                    <h5 class="text-center">Etudiants</h5>
+                </div>
+    
+                <!-- Single Cool Facts Area -->
+                <div class="single-cool-facts-area wow fadeInUp" data-wow-delay="750ms">
+                    <div class="icon text-center">
+                        <img src="assets/img/core-img/events.png" alt="">
+                    </div>
+                    <h2 class="text-center">{{ stagesCount | number: '1.0-0' }}</h2>
+                    <h5 class="text-center">Stages</h5>
+                </div>
+            </div>
+        </div>
+    </section> 
+    
+
+    
+    <!-- ##### Cool Facts Area End ##### -->
+
+
+    <!-- ##### Register Now Start ##### -->
+    <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center" style="background-image: url(assets/img/core-img/texture.png);" #loginSection id="login-section">
+        <div class="register-contact-form mb-100 wow fadeInUp" data-wow-delay="250ms">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="forms">
+                            <h4>Authentification</h4>
+                            <div *ngIf="errorMessage" class="error">
+                              {{ errorMessage }}
+                            </div>
+                            <form (ngSubmit)="login()">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" [(ngModel)]="username" name="username" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="password" placeholder="Mot de passe" [(ngModel)]="password" name="password" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn clever-btn w-100">S'authentifier</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
+            <h3>Se connecter maintenant</h3>
+            <p>Etudiant, enseignant ou personnel, vous pouvez accèder à vos services via cette plateforme, il suffit d'accéder à votre compte en utilisant votre nom d'utilisateur, saisir un mot de passe.</p>
+        </div>
+    </section>
+    
+    <!-- ##### Register Now End ##### -->
+
+    <!-- ##### Upcoming Events Start ##### -->
+    <section class="upcoming-events section-padding-100-0 text-center" #usersSection id="users-section"> <!-- Ajoutez 'text-center' -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Utilisateurs</h3>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center g-3"> <!-- Utilisez 'g-3' pour un espacement -->
+                <!-- Single Upcoming Events -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
+                        <div class="events-thumb">
+                            <img src="assets/img/bg-img/e1.jpg" alt="">
+                            <h6 class="event-date">Etudiant</h6>
+                            <h4 class="event-title">Etudiant</h4>
+                        </div>
+                        <div class="date-fee d-flex justify-content-between">
+                            <div class="date">
+                                <p><i class="fa fa-clock"></i>Accèder à vos services via cette plateforme.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Single Upcoming Events -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="500ms">
+                        <div class="events-thumb">
+                            <img src="assets/img/bg-img/e2.jpg" alt="">
+                            <h6 class="event-date">Enseignant</h6>
+                            <h4 class="event-title">Enseignant</h4>
+                        </div>
+                        <div class="date-fee d-flex justify-content-between">
+                            <div class="date">
+                                <p><i class="fa fa-clock"></i>Accèder à vos services via cette plateforme.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Single Upcoming Events -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="750ms">
+                        <div class="events-thumb">
+                            <img src="assets/img/bg-img/e3.jpg" alt="">
+                            <h6 class="event-date">Directeur</h6>
+                            <h4 class="event-title">Directeur</h4>
+                        </div>
+                        <div class="date-fee d-flex justify-content-between">
+                            <div class="date">
+                                <p><i class="fa fa-clock"></i>Accèder à vos services via cette plateforme.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <!-- ##### Upcoming Events End ##### -->
+
+   
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area" #contactSection id="contact-section">
+        <!-- Top Footer Area -->
+        <div class="top-footer-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Footer Logo -->
+                        <div class="footer-logo">
+                            <!-- <a href="index-2.html"><img src="img/core-img/logo2.png" alt=""></a> -->
+                        </div>
+                        <!-- Copywrite -->
+                        <p>
+                            Copyright &copy; 2024 All rights reserved | 
+                            Access all your services <i class="fa fa-thumbs-up" aria-hidden="true"></i> 
+                            on <a href="https://colorlib.com/" target="_blank">this platform</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span> +212. 512. 345. 678</a>
+                <a href="#"><span>Email:</span> <span class="__cf_email__" data-cfemail="bad3d4dcd5fad9d6dfccdfc894d9d5d7">ensa.gmail.com</span></a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // Select all elements with the 'counter' class
+          const counters = document.querySelectorAll(".counter");
+      
+          counters.forEach(counter => {
+            const updateCount = () => {
+              // Set the target count (final number)
+              const target = +counter.getAttribute("data-target");
+              // Get the current count (starting from 0)
+              const count = +counter.innerText;
+              // Set the increment for each step
+              const increment = target / 200; // Adjust for speed (200 steps)
+      
+              // If the count hasn't reached the target, increment and update
+              if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 15); // Adjust for speed (15ms)
+              } else {
+                counter.innerText = target; // Once reached, set to final target
+              }
+            };
+      
+            // Initialize each counter with a 'data-target' attribute
+            counter.setAttribute("data-target", counter.innerText);
+            counter.innerText = '0'; // Start counting from 0
+            updateCount();
+          });
+        });
+      </script>
+      
+</body>
+
+</html>
   

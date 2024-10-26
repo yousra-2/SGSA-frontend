@@ -31,15 +31,30 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/favicon.ico",
+    "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/bootstrap.min.css",
+  "src/assets/css/owl.carousel.min.css",
+  "src/assets/css/animate.css",
+  "src/assets/css/magnific-popup.css",
+  "src/assets/css/font-awesome.min.css",
+  "src/assets/css/classy-nav.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/jquery/jquery-2.2.4.min.js",
+              "src/assets/js/bootstrap/popper.min.js",
+              "src/assets/js/bootstrap/bootstrap.min.js",
+              "src/assets/js/plugins/plugins.js",
+              "src/assets/js/active.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -94,15 +109,30 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/favicon.ico",
+    "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/bootstrap.min.css",
+  "src/assets/css/owl.carousel.min.css",
+  "src/assets/css/animate.css",
+  "src/assets/css/magnific-popup.css",
+  "src/assets/css/font-awesome.min.css",
+  "src/assets/css/classy-nav.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery/jquery-2.2.4.min.js",
+              "src/assets/js/bootstrap/popper.min.js",
+              "src/assets/js/bootstrap/bootstrap.min.js",
+              "src/assets/js/plugins/plugins.js",
+              "src/assets/js/active.js"
+            ]
           }
         }
       }
