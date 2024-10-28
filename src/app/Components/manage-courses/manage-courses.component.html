@@ -1,0 +1,69 @@
+<!-- 
+<div class="container">
+  <h1>Gérer les Cours pour Matière ID: {{ matiereId }}</h1>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <table *ngIf="courses.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom du Cours</th>
+        <th>PDF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.id }}</td>
+        <td>{{ course.nom }}</td>
+        <td><a [href]="course.pdfUrl" target="_blank">Télécharger</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="courses.length === 0">Aucun cours disponible pour cette matière.</p>
+</div> -->
+<div class="container">
+  <h1>Gérer les Cours pour Matière ID: {{ matiereId }}</h1>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <!-- Formulaire d'ajout de cours -->
+  <div>
+    <h2>Ajouter un Cours</h2>
+    <label>
+      Nom du Cours:
+      <input type="text" [(ngModel)]="newCourse.nom" />
+    </label>
+    <label>
+      Fichier PDF:
+      <input type="file" (change)="onFileChange($event)" accept=".pdf" />
+    </label>
+    <button (click)="addCourse()">Ajouter le Cours</button>
+  </div>
+  <div class="container">
+    <h1>Gérer les Cours pour Matière ID: {{ matiereId }}</h1>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  
+    <table *ngIf="courses.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom du Cours</th>
+          <th>PDF</th>
+          <th>Actions</th> <!-- Colonne pour les actions -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{ course.id }}</td>
+          <td>{{ course.nom }}</td>
+          <td><a [href]="course.pdfUrl" target="_blank">Télécharger</a></td>
+          <td>
+            <button (click)="deleteCourse(course.id)">Supprimer</button> <!-- Bouton de suppression -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="courses.length === 0">Chargement en cours .</p>
+  </div>
+  

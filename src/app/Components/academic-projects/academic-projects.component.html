@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Projets Académiques</h1>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!errorMessage && projets.length === 0">
+    <p>Aucun projet disponible.</p>
+  </div>
+
+  <table *ngIf="projets.length > 0" class="projets-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date d'Affection</th>
+        <th>Date Universitaire</th>
+        <th>Statut</th>
+        <th>Titre</th>
+        <th>Type</th>
+        <th>ID Enseignant</th>
+        <th>ID Étudiant</th>
+        <th>Sujet</th>
+        <th>Date de Début</th>
+        <th>Date de Fin</th>
+        <th>Société</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projet of projets">
+        <td>{{ projet.id }}</td>
+        <td>{{ projet.date_affectation | date:'short' }}</td>
+        <td>{{ projet.date_universitaire | date:'short' }}</td>
+        <td>{{ projet.statut }}</td>
+        <td>{{ projet.titre }}</td>
+        <td>{{ projet.type }}</td>
+        <td>{{ projet.enseignant_id }}</td>
+        <td>{{ projet.etudiant_id }}</td>
+        <td>{{ projet.sujet }}</td>
+        <td>{{ projet.datedebut | date:'short' }}</td>
+        <td>{{ projet.datefin | date:'short' }}</td>
+        <td>{{ projet.societe }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

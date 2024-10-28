@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Gérer Matière</h1>
+    <p>Matière ID: {{ matiereId }}</p>
+    <ul>
+      <li>
+        <a [routerLink]="['/manage-courses', matiereId]">Gérer Cours</a>
+      </li>
+      <li>
+        <a [routerLink]="['/manage-students', matiereId]">Gérer Étudiants</a>
+      </li>
+    </ul>
+  </div>
+  

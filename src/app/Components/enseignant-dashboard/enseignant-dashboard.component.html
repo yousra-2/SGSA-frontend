@@ -1,1 +1,34 @@
-<p>enseignant-dashboard works!</p>
+
+<div class="container">
+  <h1>Dashboard Enseignant</h1>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!errorMessage && matieres.length === 0">
+    <p>Aucune matière disponible.</p>
+  </div>
+
+  <table *ngIf="matieres.length > 0" class="matieres-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let matiere of matieres">
+        <td>{{ matiere.id }}</td>
+        <td>
+          <a [routerLink]="['/manage-subject', matiere.id]">{{ matiere.nom }}</a>
+
+        </td>
+        <td>{{ matiere.description || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<a href="#" (click)="goToProjects($event)">Gérer Projets Académiques</a>

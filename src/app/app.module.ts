@@ -19,10 +19,7 @@ import { EtudiantAttestationComponent } from './Components/etudiant-attestation/
     AppComponent,
     LoginComponent,
     EtudiantDashboardComponent,
-    EnseignantDashboardComponent,
-    DirecteurDashboardComponent,
-    EtudiantNotesComponent,
-    EtudiantAttestationComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -36,4 +33,5 @@ import { EtudiantAttestationComponent } from './Components/etudiant-attestation/
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
