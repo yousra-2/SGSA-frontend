@@ -1,0 +1,20 @@
+<div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>Gestion</h2>
+      <ul>
+        <li (click)="navigateToModules()">Gérer Modules</li>
+        <li (click)="navigateToFormation()">Gérer formation</li>
+        <li (click)="navigateToEnseignants()">Gérer Enseignants</li>
+        <li (click)="logout()">Déconnexion</li>
+      </ul>
+    </aside>
+  
+    <main class="main-content">
+      <h1>Tableau de Bord du Directeur</h1>
+  
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+     
+    </main>
+  </div>
+  

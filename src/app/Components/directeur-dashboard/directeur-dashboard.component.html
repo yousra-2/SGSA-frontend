@@ -1,1 +1,31 @@
-<p>directeur-dashboard works!</p>
+<div>
+    <h1>Tableau de Bord du Directeur</h1>
+  
+    <button (click)="navigateToAddEnseignant()">Ajouter Enseignant</button>
+  
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enseignant of enseignants">
+          <td>{{ enseignant.firstName }}</td>
+          <td>{{ enseignant.lastName }}</td>
+          <td>{{ enseignant.email }}</td>
+          <td>
+            <button (click)="deleteEnseignant(enseignant.id)">Supprimer</button>
+            <button [routerLink]="['/modifier-enseignant', enseignant.id]">Modifier</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

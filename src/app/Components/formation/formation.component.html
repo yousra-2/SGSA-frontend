@@ -1,0 +1,64 @@
+<!-- <div>
+  <h2>Ajouter une Formation</h2>
+  <form (ngSubmit)="addFormation()">
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" [(ngModel)]="nom" name="nom" required>
+    
+    <label for="description">Description:</label>
+    <input type="text" id="description" [(ngModel)]="description" name="description" required>
+
+    <label for="duree">Durée:</label>
+    <input type="text" id="duree" [(ngModel)]="duree" name="duree" required>
+
+    <button type="submit">Ajouter Formation</button>
+  </form>
+
+  <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" style="color: green;">{{ successMessage }}</div>
+
+  <h2>Formations</h2>
+  <ul>
+    <li *ngFor="let formation of formations">
+      {{ formation.nom }} - {{ formation.description }} - {{ formation.duree }}
+    </li>
+    
+  </ul>
+</div> -->
+<div class="formation-container">
+    <h2>{{ isEditMode ? 'Modifier la Formation' : 'Ajouter une Formation' }}</h2>
+  
+    <!-- Form for adding or editing a formation -->
+    <form (ngSubmit)="isEditMode ? updateFormation() : addFormation()" #formationForm="ngForm">
+      <div>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" [(ngModel)]="nom" name="nom" required />
+      </div>
+  
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
+      </div>
+  
+      <div>
+        <label for="duree">Durée:</label>
+        <input type="number" id="duree" [(ngModel)]="duree" name="duree" required />
+      </div>
+  
+      <button type="submit">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+      <button type="button" (click)="clearForm()" *ngIf="isEditMode">Annuler</button>
+    </form>
+  
+    <!-- Success and error messages -->
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <h3>Liste des Formations</h3>
+  
+    <!-- List of formations with edit option -->
+    <ul>
+      <li *ngFor="let formation of formations">
+        <strong>{{ formation.nom }}</strong> - {{ formation.description }} (Durée: {{ formation.duree }} heures)
+        <button (click)="editFormation(formation)">Modifier</button>
+      </li>
+  </ul>
+  </div>

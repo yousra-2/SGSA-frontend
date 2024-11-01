@@ -10,28 +10,34 @@ import { ManageCoursesComponent } from './Components/manage-courses/manage-cours
 import { ManageStudentsComponent } from './Components/manage-students/manage-students.component'; 
 import { ManageSubjectComponent } from './Components/manage-subject/manage-subject.component';
 import { AcademicProjectsComponent } from './Components/academic-projects/academic-projects.component';
+import { AjouterEnseignantComponent } from './Components/directeur-dashboard/ajouter-enseignant.component'; // Correct
+import { ModifierEnseignantComponent } from './Components/directeur-dashboard/modifier-enseignant.component'; 
+import { DashboardComponent } from './Components/dashboard/dashboard.component';// Correct
+import { ModuleComponent } from './Components/module/module.component';// Correct
+import { FormationComponent } from './Components/formation/formation.component'; // Importez le composant
 
 const routes: Routes = [
-  { path: 'login', component:LoginComponent },
-  { path: 'etudiant-dashboard', component:EtudiantDashboardComponent },
-  { path: 'enseignant-dashboard', component:EnseignantDashboardComponent },
-  { path: 'directeur-dashboard', component:DirecteurDashboardComponent },
-  { path: 'etuNotes', component:EtudiantNotesComponent },
-  { path: 'etuAttest', component:EtudiantAttestationComponent },
-
+  { path: 'login', component: LoginComponent },
+  { path: 'etudiant-dashboard', component: EtudiantDashboardComponent },
+  { path: 'enseignant-dashboard', component: EnseignantDashboardComponent },
+  { path: 'directeur-dashboard', component: DirecteurDashboardComponent },
+  { path: 'etuNotes', component: EtudiantNotesComponent },
+  { path: 'etuAttest', component: EtudiantAttestationComponent },
   { path: 'manage-courses/:matiereId', component: ManageCoursesComponent },
-  { path: 'manage-students/:matiereId', component: ManageStudentsComponent }, // Route pour gérer les étudiants
-  { path: 'manage-subject/:matiereId', component: ManageSubjectComponent }, 
+  { path: 'manage-students/:matiereId', component: ManageStudentsComponent },
+  { path: 'manage-subject/:matiereId', component: ManageSubjectComponent },
   { path: 'academic-projects/:enseignantId', component: AcademicProjectsComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: 'ajouter-enseignant', component: AjouterEnseignantComponent }, // Nouvelle route pour ajouter enseignant
+  { path: 'modifier-enseignant/:id', component: ModifierEnseignantComponent },
+  { path: 'dashboard', component: DashboardComponent }, // Nouvelle route pour modifier enseignant
+  { path: 'module', component: ModuleComponent }, // Nouvelle route pour modifier enseignant
+  { path: 'formation', component: FormationComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' } // Redirection vers la page de connexion
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule]
-// })
 export class AppRoutingModule { }

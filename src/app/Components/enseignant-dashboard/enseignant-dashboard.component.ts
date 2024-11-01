@@ -39,22 +39,23 @@ export class EnseignantDashboardComponent implements OnInit {
 
   loadMatieres(): void {
     const token = localStorage.getItem('token');
-
+  
     if (!token || !this.enseignantId) {
       this.errorMessage = 'Session expirée. Veuillez vous reconnecter.';
       setTimeout(() => this.router.navigate(['/login']), 1000);
       return;
     }
-
+  
     const headers = { 'Authorization': `Bearer ${token}` };
     const url = `http://localhost:8085/account/matieres`;
-
-    this.http.get<string[]>(url, { headers }).subscribe(
+  
+    // Notez que le type de réponse attendu est un tableau d'objets avec id et nom
+    this.http.get<{ id: number; nom: string }[]>(url, { headers }).subscribe(
       (data) => {
         console.log('Données reçues:', data);
-        this.matieres = data.map((nom, index) => ({
-          id: index + 1,
-          nom: nom,
+        this.matieres = data.map((matiere) => ({
+          id: matiere.id,
+          nom: matiere.nom,
           description: 'Aucune description fournie'
         }));
       },
@@ -64,6 +65,7 @@ export class EnseignantDashboardComponent implements OnInit {
       }
     );
   }
+  
 
   goToProjects(event: Event): void {
     event.preventDefault();  // Empêche le rechargement

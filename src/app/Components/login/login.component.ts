@@ -43,7 +43,7 @@ export class LoginComponent {
       } else if (roles.includes('ROLE_ENSEIGNANT')) {
         this.router.navigate(['/enseignant-dashboard']); // Redirection vers le tableau de bord enseignant
       } else if (roles.includes('ROLE_DIRECTEUR')) {
-        this.router.navigate(['/directeur-dashboard']); // Redirection vers le tableau de bord directeur
+        this.router.navigate(['/dashboard']); // Redirection vers le tableau de bord directeur
       } else {
         this.errorMessage = 'Rôle non reconnu';
       }

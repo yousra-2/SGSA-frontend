@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'academic-projects/:enseignantId', component: AcademicProjectsComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }  // Optionnel : Redirigez les routes inconnues vers la page d'accueil
+  { path: '', redirectTo: '/home' }  // Optionnel : Redirigez les routes inconnues vers la page d'accueil
 
 ];
 
@@ -34,4 +34,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { }

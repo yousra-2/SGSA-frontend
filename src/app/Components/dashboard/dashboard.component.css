@@ -1,0 +1,63 @@
+.dashboard-container {
+  display: flex; /* Utiliser flexbox pour le layout */
+}
+
+.sidebar {
+  width: 250px; /* Largeur de la barre latérale */
+  background-color: #f4f4f4; /* Couleur de fond de la barre latérale */
+  padding: 20px; /* Espacement interne */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre pour la barre latérale */
+}
+
+.sidebar h2 {
+  font-size: 20px; /* Taille de la police pour le titre */
+}
+
+.sidebar ul {
+  list-style-type: none; /* Supprime les puces de la liste */
+  padding: 0; /* Supprime le padding */
+}
+
+.sidebar li {
+  margin: 10px 0; /* Espacement entre les éléments de la liste */
+  cursor: pointer; /* Change le curseur pour indiquer qu'ils sont cliquables */
+}
+
+.sidebar li:hover {
+  background-color: #ddd; /* Change de couleur au survol */
+  padding: 10px; /* Espacement au survol */
+}
+
+.main-content {
+  flex: 1; /* Prend le reste de l'espace disponible */
+  padding: 20px; /* Espacement interne */
+  background-color: #fff; /* Couleur de fond du contenu principal */
+}
+
+.main-content h1 {
+  font-size: 24px; /* Taille de la police pour le titre principal */
+}
+
+table {
+  width: 100%; /* Largeur du tableau */
+  border-collapse: collapse; /* Fusionne les bordures des cellules */
+  margin-top: 20px; /* Espacement au-dessus du tableau */
+}
+
+th, td {
+  border: 1px solid #ccc; /* Bordure pour les cellules */
+  padding: 10px; /* Espacement interne des cellules */
+  text-align: left; /* Alignement à gauche */
+}
+
+th {
+  background-color: #f4f4f4; /* Couleur de fond pour l'en-tête */
+}
+
+.error {
+  color: red; /* Couleur pour les messages d'erreur */
+}
+
+.success {
+  color: green; /* Couleur pour les messages de succès */
+}

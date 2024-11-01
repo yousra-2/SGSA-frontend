@@ -1,46 +1,85 @@
-<div class="container">
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
   <h1>Projets Académiques</h1>
 
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
+  <mat-card *ngIf="errorMessage" class="error-message">
+    <mat-card-content>
+      {{ errorMessage }}
+    </mat-card-content>
+  </mat-card>
 
-  <div *ngIf="!errorMessage && projets.length === 0">
-    <p>Aucun projet disponible.</p>
-  </div>
+  <mat-card *ngIf="!errorMessage && projets.length === 0">
+    <mat-card-content>
+      <p>Aucun projet disponible.</p>
+    </mat-card-content>
+  </mat-card>
 
-  <table *ngIf="projets.length > 0" class="projets-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Date d'Affection</th>
-        <th>Date Universitaire</th>
-        <th>Statut</th>
-        <th>Titre</th>
-        <th>Type</th>
-        <th>ID Enseignant</th>
-        <th>ID Étudiant</th>
-        <th>Sujet</th>
-        <th>Date de Début</th>
-        <th>Date de Fin</th>
-        <th>Société</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let projet of projets">
-        <td>{{ projet.id }}</td>
-        <td>{{ projet.date_affectation | date:'short' }}</td>
-        <td>{{ projet.date_universitaire | date:'short' }}</td>
-        <td>{{ projet.statut }}</td>
-        <td>{{ projet.titre }}</td>
-        <td>{{ projet.type }}</td>
-        <td>{{ projet.enseignant_id }}</td>
-        <td>{{ projet.etudiant_id }}</td>
-        <td>{{ projet.sujet }}</td>
-        <td>{{ projet.datedebut | date:'short' }}</td>
-        <td>{{ projet.datefin | date:'short' }}</td>
-        <td>{{ projet.societe }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <mat-table *ngIf="projets.length > 0" class="projets-table" mat-table [dataSource]="projets">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.id }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="date_affectation">
+      <mat-header-cell *matHeaderCellDef> Date d'Affection </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.date_affectation ? (projet.date_affectation | date:'short') : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateUniversitaire">
+      <mat-header-cell *matHeaderCellDef> Date Universitaire </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.dateUniversitaire }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="statut">
+      <mat-header-cell *matHeaderCellDef> Statut </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.statut }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="titre">
+      <mat-header-cell *matHeaderCellDef> Titre </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.titre }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.type }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="enseignant_id">
+      <mat-header-cell *matHeaderCellDef> ID Enseignant </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.enseignant_id }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="etudiant_id">
+      <mat-header-cell *matHeaderCellDef> ID Étudiant </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.etudiant ? projet.etudiant.id : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nom_etudiant">
+      <mat-header-cell *matHeaderCellDef> Nom Étudiant </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.etudiant ? (projet.etudiant.firstName + ' ' + projet.etudiant.lastName) : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sujet">
+      <mat-header-cell *matHeaderCellDef> Sujet </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.sujet ? projet.sujet : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="datedebut">
+      <mat-header-cell *matHeaderCellDef> Date de Début </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.datedebut ? (projet.datedebut | date:'short') : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="datefin">
+      <mat-header-cell *matHeaderCellDef> Date de Fin </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.datefin ? (projet.datefin | date:'short') : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="societe">
+      <mat-header-cell *matHeaderCellDef> Société </mat-header-cell>
+      <mat-cell *matCellDef="let projet"> {{ projet.societe ? projet.societe : 'N/A' }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>
