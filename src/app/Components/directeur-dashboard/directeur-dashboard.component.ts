@@ -13,6 +13,8 @@ export class DirecteurDashboardComponent implements OnInit {
   errorMessage: string = '';
   successMessage: string = '';
   apiUrl = 'http://localhost:8085/api/enseignants'; // Mettez à jour l'URL si nécessaire
+  
+  page: number = 1;
 
   constructor(private http: HttpClient, private router: Router, private localStorageService: LocalStorageService) { } // Ajoutez LocalStorageService ici
 
@@ -66,7 +68,6 @@ export class DirecteurDashboardComponent implements OnInit {
       );
     }
   }
-
   navigateToAddEnseignant(): void {
     this.router.navigate(['/ajouter-enseignant']);
   }

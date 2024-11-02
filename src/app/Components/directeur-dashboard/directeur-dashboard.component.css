@@ -1,22 +1,155 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  .error {
-    color: red;
-  }
-  
-  .success {
-    color: green;
-  }
-  
+body {
+    color: #566787;
+    background: #f5f5f5;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.table-wrapper {
+    background: #fff;
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.table-title {
+    padding-bottom: 15px;
+    background: #435d7d;
+    color: #fff;
+    padding: 16px 30px;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+    margin: 5px 0 0;
+    font-size: 24px;
+}
+
+.table-title .btn {
+    color: #fff;
+    font-size: 13px;
+    border: none;
+    min-width: 50px;
+    border-radius: 2px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.table-title .btn i {
+    margin-right: 5px;
+}
+
+.table.table-striped.table-hover {
+    margin-top: 15px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+
+.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+/* Action Buttons in Table */
+.action-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.action-btn {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.btn-danger .material-icons {
+    color: #d9534f;
+}
+
+.btn-info .material-icons {
+    color: #5bc0de;
+}
+
+.btn-success {
+    background-color: #5cb85c;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.table .btn {
+    padding: 6px;
+    font-size: 13px;
+    margin: 2px;
+}
+
+.action-btn {
+    border-radius: 50%;
+    background-color: #fff;
+    color: #fff;
+    padding: 5px;
+    margin: 0 2px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-danger .material-icons {
+    color: #d9534f;
+}
+
+.btn-info .material-icons {
+    color: #5bc0de;
+}
+
+.alert {
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.alert-danger {
+    color: #d9534f;
+}
+.alert-success {
+    color: #5cb85c;
+}
+
+/* Pagination Styles */
+.pagination-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination-controls .ng2-pagination {
+    display: inline-block;
+}
+
+.pagination-controls .ng2-pagination button {
+    color: #435d7d;
+    border: 1px solid #dee2e6;
+    padding: 5px 10px;
+    margin: 0 2px;
+    background: #f5f5f5;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.pagination-controls .ng2-pagination button:hover {
+    background-color: #435d7d;
+    color: #fff;
+}
