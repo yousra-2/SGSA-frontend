@@ -8,6 +8,13 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   errorMessage: string = ''; // Message d'erreur
+ // Dans le composant TypeScript
+isSidebarVisible: boolean = true;
+
+toggleSidebar() {
+  this.isSidebarVisible = !this.isSidebarVisible;
+}
+
 
   constructor(private router: Router) {} // Injection du router
 

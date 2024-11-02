@@ -1,63 +1,66 @@
 .dashboard-container {
-  display: flex; /* Utiliser flexbox pour le layout */
+    display: flex;
+    height: 100vh; /* Remplit la hauteur de la fenêtre */
+    background-color: white; /* Couleur de fond légère */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
 }
 
 .sidebar {
-  width: 250px; /* Largeur de la barre latérale */
-  background-color: #f4f4f4; /* Couleur de fond de la barre latérale */
-  padding: 20px; /* Espacement interne */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre pour la barre latérale */
+    width: 250px; /* Largeur de la barre latérale */
+    background-color: #3f51b5; /* Couleur de fond de la barre latérale */
+    color: white; /* Couleur du texte */
+    padding: 20px; /* Espacement intérieur */
+    transition: width 0.3s, transform 0.3s; /* Transition pour la largeur et la transformation */
+}
+
+.sidebar.hidden {
+    width: 80px; /* Largeur réduite lorsque la barre latérale est masquée */
+    overflow: hidden; /* Cache tout le contenu qui dépasse */
 }
 
 .sidebar h2 {
-  font-size: 20px; /* Taille de la police pour le titre */
+    margin: 0 0 20px; /* Marge sous le titre */
 }
 
 .sidebar ul {
-  list-style-type: none; /* Supprime les puces de la liste */
-  padding: 0; /* Supprime le padding */
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le remplissage de la liste */
 }
 
 .sidebar li {
-  margin: 10px 0; /* Espacement entre les éléments de la liste */
-  cursor: pointer; /* Change le curseur pour indiquer qu'ils sont cliquables */
+    display: flex; /* Aligne les icônes et le texte */
+    align-items: center; /* Centre verticalement */
+    padding: 10px 0; /* Espacement vertical */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: background-color 0.3s; /* Transition de couleur de fond au survol */
 }
 
 .sidebar li:hover {
-  background-color: #ddd; /* Change de couleur au survol */
-  padding: 10px; /* Espacement au survol */
+    background-color: rgba(255, 255, 255, 0.2); /* Couleur de survol */
+}
+
+.logout {
+    margin-top: auto; /* Pousse la déconnexion en bas de la liste */
+    color: #ff5722; /* Couleur pour le bouton de déconnexion */
 }
 
 .main-content {
-  flex: 1; /* Prend le reste de l'espace disponible */
-  padding: 20px; /* Espacement interne */
-  background-color: #fff; /* Couleur de fond du contenu principal */
+    flex-grow: 1; /* Prend tout l'espace restant */
+    padding: 20px; /* Espacement intérieur */
+    background-color: white; /* Couleur de fond du contenu principal */
+    overflow-y: auto; /* Permet le défilement vertical */
+    transition: margin-left 0.3s; /* Transition pour le contenu principal */
 }
 
-.main-content h1 {
-  font-size: 24px; /* Taille de la police pour le titre principal */
+.main-content.hidden-sidebar {
+    margin-left: 80px; /* Réduit la marge gauche lorsque la barre latérale est masquée */
 }
 
-table {
-  width: 100%; /* Largeur du tableau */
-  border-collapse: collapse; /* Fusionne les bordures des cellules */
-  margin-top: 20px; /* Espacement au-dessus du tableau */
-}
-
-th, td {
-  border: 1px solid #ccc; /* Bordure pour les cellules */
-  padding: 10px; /* Espacement interne des cellules */
-  text-align: left; /* Alignement à gauche */
-}
-
-th {
-  background-color: #f4f4f4; /* Couleur de fond pour l'en-tête */
-}
-
-.error {
-  color: red; /* Couleur pour les messages d'erreur */
-}
-
-.success {
-  color: green; /* Couleur pour les messages de succès */
+.toggle-sidebar-btn {
+    background: none; /* Supprime le fond du bouton */
+    border: none; /* Supprime la bordure */
+    color: white; /* Couleur de l'icône */
+    cursor: pointer; /* Change le curseur au survol */
+    margin-bottom: 20px; /* Espacement sous le bouton */
 }

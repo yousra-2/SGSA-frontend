@@ -1,20 +1,34 @@
 <div class="dashboard-container">
-    <aside class="sidebar">
-      <h2>Gestion</h2>
-      <ul>
-        <li (click)="navigateToModules()">Gérer Modules</li>
-        <li (click)="navigateToFormation()">Gérer formation</li>
-        <li (click)="navigateToEnseignants()">Gérer Enseignants</li>
-        <li (click)="logout()">Déconnexion</li>
-      </ul>
+    <!-- Sidebar -->
+    <aside class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}">
+        <button mat-icon-button (click)="toggleSidebar()" class="toggle-sidebar-btn">
+            <mat-icon *ngIf="!isSidebarVisible">{{ 'menu' }}</mat-icon>
+            <mat-icon *ngIf="isSidebarVisible">{{ 'menu_open' }}</mat-icon>
+        </button>
+        <h2 *ngIf="isSidebarVisible">Gestion</h2>
+        <ul>
+            <li (click)="navigateToModules()">
+                <mat-icon>dashboard</mat-icon> <span *ngIf="isSidebarVisible">Gérer Modules</span>
+            </li>
+            <li (click)="navigateToFormation()">
+                <mat-icon>school</mat-icon> <span *ngIf="isSidebarVisible">Gérer Formation</span>
+            </li>
+            <li (click)="navigateToEnseignants()">
+                <mat-icon>people</mat-icon> <span *ngIf="isSidebarVisible">Gérer Enseignants</span>
+            </li>
+            <li *ngIf="isSidebarVisible">
+                <mat-icon>group</mat-icon> Gérer Étudiants
+            </li>
+            <li class="logout" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon> <span *ngIf="isSidebarVisible">Déconnexion</span>
+            </li>
+        </ul>
     </aside>
-  
-    <main class="main-content">
-      <h1>Tableau de Bord du Directeur</h1>
-  
-      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-  
-     
+
+    <!-- Contenu principal avec classe dynamique -->
+    <main class="main-content" [class.hidden-sidebar]="!isSidebarVisible">
+        <h1>Tableau de Bord du Directeur</h1>
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+        <!-- Ajoutez ici vos autres éléments de contenu principal -->
     </main>
-  </div>
-  
+</div>

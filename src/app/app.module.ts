@@ -20,12 +20,14 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ModuleComponent } from './Components/module/module.component';
 import { FormationComponent } from './Components/formation/formation.component';
 // Assurez-vous d'importer ce composant
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EtudiantDashboardComponent,
+    
     // EnseignantDashboardComponent,
     DirecteurDashboardComponent,
     EtudiantNotesComponent,
@@ -37,7 +39,8 @@ import { FormationComponent } from './Components/formation/formation.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),
