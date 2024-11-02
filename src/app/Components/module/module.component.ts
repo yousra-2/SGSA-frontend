@@ -36,6 +36,7 @@ export class ModuleComponent implements OnInit {
    
   }
 
+
   // Load modules from the API
   loadModules(): void {
     const token = this.localStorageService.get('token'); // Récupérer le token
@@ -57,6 +58,28 @@ export class ModuleComponent implements OnInit {
       }
     );
   }
+  deleteMatiere(matiereId: number, moduleId: number): void {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
+
+    this.http.delete(`http://localhost:8085/matieres/${matiereId}`, { headers }).subscribe(
+      () => {
+          alert('Matière supprimée avec succès !');
+          // Mettre à jour localement la liste des matières
+          const module = this.modules.find(m => m.id === moduleId);
+          if (module) {
+              module.matieres = module.matieres.filter(m => m.id !== matiereId);
+          }
+      },
+      (error) => {
+        window.location.reload();
+      }
+  );
+  }  
+
+
 
   loadEnseignants(): void {
     const token = this.localStorageService.get('token');

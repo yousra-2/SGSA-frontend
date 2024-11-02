@@ -1,44 +1,219 @@
 .module-container {
-    max-width: 600px;
-    margin: auto;
+    max-width: 800px;
+    margin: 30px auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-  }
-  
-  h2 {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
     text-align: center;
-  }
-  
-  .add-module, .add-matiere {
+    color: #333;
+}
+
+.add-module {
     margin-bottom: 20px;
-  }
-  
-  input {
-    margin-right: 10px;
-    padding: 5px;
-    width: 200px;
-  }
-  
-  button {
-    padding: 5px 10px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-module h3 {
+    margin-bottom: 10px;
+}
+
+.add-module input,
+.add-module button {
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-module button {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+.add-module button:hover {
     background-color: #0056b3;
-  }
-  
-  ul {
+}
+
+.module-list {
     list-style-type: none;
     padding: 0;
-  }
-  
-  li {
+}
+
+.module-item {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.module-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.module-icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ecef;
+}
+
+.module-name {
+    flex: 1;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.view-subjects-btn {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.view-subjects-btn:hover {
+    background-color: #138496;
+}
+
+.subjects-section {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.subject-list {
+    padding: 0;
     margin: 10px 0;
-  }
-  
+}
+
+.add-subject {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.add-subject input,
+.add-subject select,
+.add-subject button {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}.subjects-section {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subject-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.subject-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subject-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.add-subject {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.add-subject h4 {
+    margin-bottom: 10px;
+}
+
+.add-subject input,
+.add-subject select,
+.add-subject button {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.add-subject button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.add-subject button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.remove-subject-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #dc3545; /* Couleur rouge pour l'icône de suppression */
+}
+
+.remove-subject-btn:hover {
+    color: #c82333; /* Couleur plus sombre au survol */
+}
+
+.subject-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}

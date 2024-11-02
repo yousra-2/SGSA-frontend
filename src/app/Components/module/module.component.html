@@ -1,49 +1,60 @@
 <div class="module-container">
+    <div class="text-right mb-3">
+        <a routerLink="/dashboard" class="btn btn-secondary">
+            <i class="glyphicon glyphicon-arrow-left"></i> Retour
+        </a>
+    </div>
     <h2>Gestion des Modules</h2>
-  
+
     <div class="add-module">
-      <h3>Ajouter un Module</h3>
-      <input type="text" [(ngModel)]="nomModule" placeholder="Nom du Module" />
-      <button (click)="addModule()">Ajouter Module</button>
+        <h3>Ajouter un Module</h3>
+        <input type="text" [(ngModel)]="nomModule" placeholder="Nom du Module" />
+        <button (click)="addModule()">Ajouter</button>
     </div>
-  
+
     <div class="module-list">
-      <h3>Modules Existants</h3>
-      <ul>
-        <li *ngFor="let module of modules">
-          {{ module.nom }}
-          <button (click)="selectModule(module.id)">Afficher Matières</button>
-          
-          <div *ngIf="module.id === selectedModuleId">
-            <h4>Matières :</h4>
-            <ul>
-              <li *ngFor="let matiere of module.matieres">
-                {{ matiere.nom }}
-              </li>
-            </ul>
-  
-            <h4>Ajouter une Matière :</h4>
-            <input type="text" [(ngModel)]="nomMatiere" placeholder="Nom de la Matière" />
-            
-            <select [(ngModel)]="enseignantId">
-              <option value="" disabled selected>Sélectionner un Enseignant</option>
-              <option *ngFor="let enseignant of enseignants" [value]="enseignant.id">
-                {{ enseignant.firstName }} {{ enseignant.lastName }}
-              </option>
-            </select>
-  
-            <select [(ngModel)]="formationId">
-              <option value="" disabled selected>Sélectionner une Formation</option>
-              <option *ngFor="let formation of formations" [value]="formation.id">
-                {{ formation.nom }}
-              </option>
-            </select>
-  
-            <button (click)="addMatiere()">Ajouter Matière</button>
-            <button (click)="selectedModuleId = null">Annuler</button>
-          </div>
-        </li>
-      </ul>
+        <ul>
+            <li *ngFor="let module of modules" class="module-item">
+                <div class="module-info">
+                    <span class="module-icon">{{ module.nom.charAt(0).toUpperCase() }}</span>
+                    <span class="module-name">{{ module.nom }}</span>
+                    <button (click)="selectModule(module.id)" class="view-subjects-btn">Afficher Matières</button>
+                </div>
+
+                <div *ngIf="module.id === selectedModuleId" class="subjects-section">
+                    <h4>Matières</h4>
+                    <ul class="subject-list">
+                        <li *ngFor="let matiere of module.matieres" class="subject-item">
+                            <span class="subject-name">{{ matiere.nom }}</span>
+                            <button (click)="deleteMatiere(matiere.id, module.id)" class="remove-subject-btn">
+                                <i class="fa fa-trash"></i> <!-- Utiliser une icône de poubelle -->
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="add-subject">
+                        <h4>Ajouter une Matière</h4>
+                        <input type="text" [(ngModel)]="nomMatiere" placeholder="Nom de la Matière" />
+
+                        <select [(ngModel)]="enseignantId">
+                            <option value="" disabled selected>Sélectionner un Enseignant</option>
+                            <option *ngFor="let enseignant of enseignants" [value]="enseignant.id">
+                                {{ enseignant.firstName }} {{ enseignant.lastName }}
+                            </option>
+                        </select>
+
+                        <select [(ngModel)]="formationId">
+                            <option value="" disabled selected>Sélectionner une Formation</option>
+                            <option *ngFor="let formation of formations" [value]="formation.id">
+                                {{ formation.nom }}
+                            </option>
+                        </select>
+
+                        <button (click)="addMatiere()">Ajouter</button>
+                        <button (click)="selectedModuleId = null" class="cancel-btn">Annuler</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-  </div>
-  
+</div>

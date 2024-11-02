@@ -1,64 +1,42 @@
-<!-- <div>
-  <h2>Ajouter une Formation</h2>
-  <form (ngSubmit)="addFormation()">
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" [(ngModel)]="nom" name="nom" required>
-    
-    <label for="description">Description:</label>
-    <input type="text" id="description" [(ngModel)]="description" name="description" required>
-
-    <label for="duree">Durée:</label>
-    <input type="text" id="duree" [(ngModel)]="duree" name="duree" required>
-
-    <button type="submit">Ajouter Formation</button>
-  </form>
-
-  <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
-  <div *ngIf="successMessage" style="color: green;">{{ successMessage }}</div>
-
-  <h2>Formations</h2>
-  <ul>
-    <li *ngFor="let formation of formations">
-      {{ formation.nom }} - {{ formation.description }} - {{ formation.duree }}
-    </li>
-    
-  </ul>
-</div> -->
 <div class="formation-container">
-    <h2>{{ isEditMode ? 'Modifier la Formation' : 'Ajouter une Formation' }}</h2>
-  
-    <!-- Form for adding or editing a formation -->
-    <form (ngSubmit)="isEditMode ? updateFormation() : addFormation()" #formationForm="ngForm">
-      <div>
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" [(ngModel)]="nom" name="nom" required />
+    <div class="text-right mb-3">
+        <button (click)="goBack()" class="btn btn-secondary">
+            <i class="glyphicon glyphicon-arrow-left"></i> Retour
+        </button>
+    </div>
+    <h2>Formations</h2>
+    <button (click)="toggleForm()" class="add-formation-button">Ajouter une formation</button>
+    
+    <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    
+    <form *ngIf="isFormVisible" (ngSubmit)="isEditMode ? updateFormation() : addFormation()" class="formation-form">
+      <h3 *ngIf="!isEditMode">Ajouter une formation</h3>
+      <h3 *ngIf="isEditMode">Modifier la formation</h3>
+      
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="nom" name="nom" required class="form-input">
+      
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="description" name="description" required class="form-input"></textarea>
+      
+      <label for="duree">Durée:</label>
+      <input type="number" id="duree" [(ngModel)]="duree" name="duree" required class="form-input">
+    
+      <div class="form-actions">
+        <button type="submit" class="submit-button">{{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}</button>
+        <button type="button" (click)="clearForm()" class="cancel-button">Annuler</button>
       </div>
-  
-      <div>
-        <label for="description">Description:</label>
-        <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
-      </div>
-  
-      <div>
-        <label for="duree">Durée:</label>
-        <input type="number" id="duree" [(ngModel)]="duree" name="duree" required />
-      </div>
-  
-      <button type="submit">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
-      <button type="button" (click)="clearForm()" *ngIf="isEditMode">Annuler</button>
     </form>
-  
-    <!-- Success and error messages -->
-    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
-    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  
-    <h3>Liste des Formations</h3>
-  
-    <!-- List of formations with edit option -->
-    <ul>
-      <li *ngFor="let formation of formations">
-        <strong>{{ formation.nom }}</strong> - {{ formation.description }} (Durée: {{ formation.duree }} heures)
-        <button (click)="editFormation(formation)">Modifier</button>
+    
+    <ul class="formation-list">
+      <li *ngFor="let formation of formations" class="formation-item">
+        <div class="formation-initial-container">
+          <span class="formation-initial">{{ formation.nom.charAt(0) }}</span>
+          <span class="formation-name">{{ formation.nom }}</span>
+        </div>
+        <button (click)="editFormation(formation)" class="edit-button">Modifier</button>
       </li>
-  </ul>
+    </ul>
   </div>
+  

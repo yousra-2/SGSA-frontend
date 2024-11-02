@@ -32,6 +32,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EtudiantDashboardComponent,
     
     
+    
     // EnseignantDashboardComponent,
     DirecteurDashboardComponent,
     EtudiantNotesComponent,
