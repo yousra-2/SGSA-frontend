@@ -1,66 +1,83 @@
 .dashboard-container {
     display: flex;
-    height: 100vh; /* Remplit la hauteur de la fenêtre */
-    background-color: white; /* Couleur de fond légère */
-    font-family: Arial, sans-serif; /* Police de caractères */
-    transition: background-color 0.3s; /* Transition de couleur de fond */
+    height: 100vh;
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s;
 }
 
 .sidebar {
-    width: 250px; /* Largeur de la barre latérale */
-    background-color: #3f51b5; /* Couleur de fond de la barre latérale */
-    color: white; /* Couleur du texte */
-    padding: 20px; /* Espacement intérieur */
-    transition: width 0.3s, transform 0.3s; /* Transition pour la largeur et la transformation */
+    width: 250px;
+    background-color: #d1d5f7; /* Bleu foncé pour une apparence moderne */
+    color: #030a31;
+    padding: 20px;
+    transition: width 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sidebar.hidden {
-    width: 80px; /* Largeur réduite lorsque la barre latérale est masquée */
-    overflow: hidden; /* Cache tout le contenu qui dépasse */
+    width: 80px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-ensa {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+  
+    padding: 5px;
 }
 
 .sidebar h2 {
-    margin: 0 0 20px; /* Marge sous le titre */
+    margin: 0 0 20px;
+    font-size: 1.2em;
+    color: #030a31;
 }
 
 .sidebar ul {
-    list-style-type: none; /* Supprime les puces de la liste */
-    padding: 0; /* Supprime le remplissage de la liste */
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
 }
 
 .sidebar li {
-    display: flex; /* Aligne les icônes et le texte */
-    align-items: center; /* Centre verticalement */
-    padding: 10px 0; /* Espacement vertical */
-    cursor: pointer; /* Change le curseur au survol */
-    transition: background-color 0.3s; /* Transition de couleur de fond au survol */
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    color: #030a31;
 }
 
 .sidebar li:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Couleur de survol */
+    background-color: #3949ab;
+}
+
+.sidebar mat-icon {
+    margin-right: 10px;
+    font-size: 1.5em;
 }
 
 .logout {
-    margin-top: auto; /* Pousse la déconnexion en bas de la liste */
-    color: #ff5722; /* Couleur pour le bouton de déconnexion */
+    margin-top: auto;
+    color: #ff8a65;
 }
 
 .main-content {
-    flex-grow: 1; /* Prend tout l'espace restant */
-    padding: 20px; /* Espacement intérieur */
-    background-color: white; /* Couleur de fond du contenu principal */
-    overflow-y: auto; /* Permet le défilement vertical */
-    transition: margin-left 0.3s; /* Transition pour le contenu principal */
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    transition: margin-left 0.3s;
 }
 
 .main-content.hidden-sidebar {
-    margin-left: 80px; /* Réduit la marge gauche lorsque la barre latérale est masquée */
-}
-
-.toggle-sidebar-btn {
-    background: none; /* Supprime le fond du bouton */
-    border: none; /* Supprime la bordure */
-    color: white; /* Couleur de l'icône */
-    cursor: pointer; /* Change le curseur au survol */
-    margin-bottom: 20px; /* Espacement sous le bouton */
+    margin-left: 80px;
 }

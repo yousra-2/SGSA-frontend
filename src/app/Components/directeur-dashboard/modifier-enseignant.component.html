@@ -1,30 +1,126 @@
-<!-- modifier-enseignant.component.html -->
-<div>
-    <h1>Modifier un Enseignant</h1>
-  
-    <form (submit)="updateEnseignant()">
-      <label for="firstName">Prénom:</label>
-      <input id="firstName" [(ngModel)]="enseignant.firstName" name="firstName" required />
-  
-      <label for="lastName">Nom:</label>
-      <input id="lastName" [(ngModel)]="enseignant.lastName" name="lastName" required />
-  
-      <label for="email">Email:</label>
-      <input id="email" [(ngModel)]="enseignant.email" name="email" type="email" required />
-  
-      <label for="username">Nom d'utilisateur:</label>
-      <input id="username" [(ngModel)]="enseignant.username" name="username" required />
-  
-      <label for="phone">Téléphone:</label>
-      <input id="phone" [(ngModel)]="enseignant.phone" name="phone" required />
-  
-      <label for="specialite">Spécialité:</label>
-      <input id="specialite" [(ngModel)]="enseignant.specialite" name="specialite" required />
-  
-      <button type="submit">Modifier</button>
+<div class="container">
+    <h1 class="text-center">Modifier un Enseignant</h1>
+
+    <!-- Bouton de retour -->
+    <div class="text-right mb-3">
+        <a routerLink="/directeur-dashboard" class="btn btn-secondary">
+            <i class="glyphicon glyphicon-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    <form class="well form-horizontal enseignant-form" (submit)="updateEnseignant()" novalidate>
+        <fieldset>
+
+            <!-- Prénom -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="firstName">Prénom:</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="firstName" 
+                               [(ngModel)]="enseignant.firstName" 
+                               name="firstName" 
+                               class="form-control" 
+                               required 
+                               placeholder="Prénom" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nom -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lastName">Nom:</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="lastName" 
+                               [(ngModel)]="enseignant.lastName" 
+                               name="lastName" 
+                               class="form-control" 
+                               required 
+                               placeholder="Nom" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email:</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input id="email" 
+                               [(ngModel)]="enseignant.email" 
+                               name="email" 
+                               type="email" 
+                               class="form-control" 
+                               required 
+                               placeholder="Email" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nom d'utilisateur -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Nom d'utilisateur:</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="username" 
+                               [(ngModel)]="enseignant.username" 
+                               name="username" 
+                               class="form-control" 
+                               required 
+                               placeholder="Nom d'utilisateur" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Téléphone -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="phone">Téléphone:</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input id="phone" 
+                               [(ngModel)]="enseignant.phone" 
+                               name="phone" 
+                               class="form-control" 
+                               required 
+                               placeholder="Téléphone" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spécialité -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="specialite">Spécialité:</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                        <input id="specialite" 
+                               [(ngModel)]="enseignant.specialite" 
+                               name="specialite" 
+                               class="form-control" 
+                               required 
+                               placeholder="Spécialité" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning">
+                        Modifier <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </div>
+            </div>
+
+        </fieldset>
     </form>
-  
+
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
     <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
-  </div>
-  
+</div>

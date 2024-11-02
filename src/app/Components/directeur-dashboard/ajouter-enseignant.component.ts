@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms'; // Ajoutez cette ligne
 @Component({
   selector: 'app-ajouter-enseignant',
   templateUrl: './ajouter-enseignant.component.html',
-//   styleUrls: ['./ajouter-enseignant.component.css']
+  styleUrls: ['./ajouter-enseignant.component.css']
+
 })
 export class AjouterEnseignantComponent {
   enseignant = {
@@ -19,6 +20,9 @@ export class AjouterEnseignantComponent {
     phone: '',
     specialite: ''
   };
+  goBack() {
+    this.router.navigate(['/directeur-dashboard']);
+  }
   errorMessage: string = '';
   successMessage: string = '';
   apiUrl = 'http://localhost:8085/api/enseignants'; // Mettez à jour l'URL si nécessaire

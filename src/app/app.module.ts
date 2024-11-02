@@ -23,11 +23,14 @@ import { FormationComponent } from './Components/formation/formation.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EtudiantDashboardComponent,
+    
     
     // EnseignantDashboardComponent,
     DirecteurDashboardComponent,
@@ -43,6 +46,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     MatIconModule,
     NgxPaginationModule
+   
   ],
   providers: [
     provideClientHydration(),

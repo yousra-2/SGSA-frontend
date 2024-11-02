@@ -11,9 +11,9 @@ export class DashboardComponent implements OnInit {
  // Dans le composant TypeScript
 isSidebarVisible: boolean = true;
 
-toggleSidebar() {
-  this.isSidebarVisible = !this.isSidebarVisible;
-}
+// toggleSidebar() {
+//   this.isSidebarVisible = !this.isSidebarVisible;
+// }
 
 
   constructor(private router: Router) {} // Injection du router

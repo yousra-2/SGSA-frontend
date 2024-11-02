@@ -1,0 +1,16 @@
+.add-enseignant-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+}
+
+.enseignant-form .form-control {
+    border-radius: 4px;
+}
+
+.add-enseignant-container h1 {
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: 50px;
+}

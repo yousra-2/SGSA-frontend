@@ -1,11 +1,11 @@
 <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}">
-        <button mat-icon-button (click)="toggleSidebar()" class="toggle-sidebar-btn">
-            <mat-icon *ngIf="!isSidebarVisible">{{ 'menu' }}</mat-icon>
-            <mat-icon *ngIf="isSidebarVisible">{{ 'menu_open' }}</mat-icon>
-        </button>
-        <h2 *ngIf="isSidebarVisible">Gestion</h2>
+       
+        <div class="logo-container">
+            <img src="assets/img/logo-ensa.png" alt="Logo ENSA" class="logo-ensa">
+        </div>
+       
         <ul>
             <li (click)="navigateToModules()">
                 <mat-icon>dashboard</mat-icon> <span *ngIf="isSidebarVisible">Gérer Modules</span>
@@ -25,10 +25,9 @@
         </ul>
     </aside>
 
-    <!-- Contenu principal avec classe dynamique -->
+    <!-- Contenu principal -->
     <main class="main-content" [class.hidden-sidebar]="!isSidebarVisible">
         <h1>Tableau de Bord du Directeur</h1>
         <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-        <!-- Ajoutez ici vos autres éléments de contenu principal -->
     </main>
 </div>
