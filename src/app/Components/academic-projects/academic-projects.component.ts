@@ -1,32 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';  // Import MatTableModule
-import { MatCardModule } from '@angular/material/card';    // Import MatCardModule
-import { MatInputModule } from '@angular/material/input';  // Import MatInputModule (if needed for input fields)
-import { MatFormFieldModule } from '@angular/material/form-field'; // Import MatFormFieldModule (if needed for form fields)
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 interface Etudiant {
   id: number;
   firstName: string;
   lastName: string;
-  // Ajoutez d'autres propriétés selon votre modèle
 }
 
 interface ProjetAcademique {
   id: number;
-  date_affectation: Date | null; // Ajouter null si c'est possible
-  dateUniversitaire: string; // Modifiez selon le format reçu
+  date_affectation: Date | null;
+  dateUniversitaire: string;
   statut: string;
   titre: string;
   type: string;
-  enseignant_id: number | null; // S'il n'est pas toujours présent
-  etudiant: Etudiant | null; 
-  sujet: string | null; // Ajouter null si c'est possible
-  datedebut: Date | null; // Ajouter null si c'est possible
-  datefin: Date | null; // Ajouter null si c'est possible
-  societe: string | null; // Ajouter null si c'est possible
+  enseignant_id: number | null;
+  etudiant: Etudiant | null;
+  sujet: string | null;
+  datedebut: Date | null;
+  datefin: Date | null;
+  societe: string | null;
 }
 
 @Component({
@@ -37,10 +36,10 @@ interface ProjetAcademique {
   imports: [
     HttpClientModule,
     CommonModule,
-    MatTableModule,   // Add MatTableModule to imports
-    MatCardModule,    // Add MatCardModule to imports
-    MatInputModule,   // Optional: Add for input fields
-    MatFormFieldModule // Optional: Add for form fields
+    MatTableModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class AcademicProjectsComponent implements OnInit {
@@ -48,8 +47,6 @@ export class AcademicProjectsComponent implements OnInit {
   errorMessage: string = '';
   enseignantId: string | null = null;
   displayedColumns: string[] = [
-    
-   
     'titre', 
     'type', 
     'nom_etudiant', 
@@ -59,11 +56,24 @@ export class AcademicProjectsComponent implements OnInit {
     'societe'
   ];
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.enseignantId = this.route.snapshot.paramMap.get('enseignantId');
+    this.enseignantId = this.getUserIdFromToken();
     this.loadProjets();
+  }
+
+  private getUserIdFromToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.id || null;
+    } catch (error) {
+      console.error('Erreur de décodage du token:', error);
+      return null;
+    }
   }
 
   loadProjets(): void {
@@ -94,9 +104,7 @@ export class AcademicProjectsComponent implements OnInit {
       this.errorMessage = 'Session expirée. Veuillez vous reconnecter.';
       this.router.navigate(['/login']);
     } else {
-      this.errorMessage =
-        'Erreur lors de la récupération des projets : ' +
-        (error.message || 'Erreur inconnue');
+      this.errorMessage = 'Erreur lors de la récupération des projets : ' + (error.message || 'Erreur inconnue');
     }
   }
 }
