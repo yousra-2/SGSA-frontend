@@ -3,12 +3,11 @@ import { LocalStorageService } from '../../Services/local-storage.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-etudiant-dashboard',
-  templateUrl: './etudiant-dashboard.component.html',
-  styleUrl: './etudiant-dashboard.component.css'
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css'
 })
-export class EtudiantDashboardComponent {
-
+export class HeaderComponent {
   constructor(private localStorageService: LocalStorageService, private router: Router) {}
 
   ngOnInit(): void {
@@ -29,22 +28,4 @@ export class EtudiantDashboardComponent {
         location.reload();
     });
 }
-services = [
-  {
-    title: 'Stages',
-    description: 'Gestion des stages.',
-    icon: 'assets/icons/stages-icon.png' // Replace with actual icon path
-  },
-  {
-    title: 'Mon résultat',
-    description: 'Consultation de vos notes.',
-    icon: 'assets/icons/results-icon.png' // Replace with actual icon path
-  },
-  {
-    title: 'Mon profil',
-    description: 'Réinscription, validation des données académiques et personnelles.',
-    icon: 'assets/icons/profile-icon.png' // Replace with actual icon path
-  }
-];
-
 }

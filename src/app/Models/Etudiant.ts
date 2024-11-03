@@ -1,13 +1,12 @@
 export class Etudiant {
-
-    id: number;
-    firstName: String 
-    lastName: String 
-    email: String
-    username: String 
-    password: String
-    phone: String
-    programme: String
-
-    
+    id: number;               
+    firstName: string;       
+    lastName: string;        
+    email: string;           
+    username: string;        
+    password: string;        
+    phone: string;           
+    niveau_etude: string;    
+    code_appogee: string;    
+    date_inscription: Date;   
 }

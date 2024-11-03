@@ -1,0 +1,42 @@
+/* Container principal pour le profil */
+.profil-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titre principal du profil */
+  .profil-container h2 {
+    text-align: center;
+    color: #333;
+    font-size:large;
+    margin-bottom: 20px;
+  }
+  
+  /* Conteneur pour les informations du profil */
+  .profil-info {
+    font-size:large;
+    color: #555;
+  }
+  
+  /* Style pour chaque élément d'information */
+  .profil-info p {
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+  
+  /* Style pour les libellés en gras */
+  .profil-info p strong {
+    color: #007bff;
+  }
+  
+  /* Message de chargement */
+  .profil-container p {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+  }
+  

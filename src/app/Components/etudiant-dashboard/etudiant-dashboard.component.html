@@ -1,4 +1,43 @@
-<p>etudiant-dashboard works!</p>
-<button [routerLink]="['/etuNotes']">Voir les Notes</button>
+<!-- <p>etudiant-dashboard works!</p> -->
+<!-- <button [routerLink]="['/etuNotes']">Voir les Notes</button>
 <button [routerLink]="['/etuAttest']">Voir attestation</button>
-<button (click)="logout()">Logout</button>
+<button (click)="logout()">Logout</button> -->
+<div class="header">
+    <app-header></app-header>
+  </div>
+  
+  <div class="dashboard">
+    <a class="service-card" [routerLink]="['/profil']">
+        <div class="icon">
+          <img src="assets/icons/profile-icon.png" alt="Mon profil" width="40" />
+        </div>
+        <h3>Mon profil</h3>
+        <p>Réinscription, validation des données académiques et personnelles.</p>
+      </a>
+      <a class="service-card" [routerLink]="['/etuAttest']">
+        <div class="icon">
+          <img src="assets/icons/attest.png" alt="Attestation de scolarité" width="40" />
+        </div>
+        <h3>Attestation de scolarité</h3>
+        <p>Télécharge une attestation de scolarité.</p>
+      </a>
+    <a class="service-card" [routerLink]="['/stages']">
+      <div class="icon">
+        <img src="assets/icons/stages-icon.png" alt="Stages" width="40" />
+      </div>
+      <h3>Stages</h3>
+      <p>Gestion des stages.</p>
+    </a>
+  
+    <a class="service-card" [routerLink]="['/etuNotes']">
+      <div class="icon">
+        <img src="assets/icons/results-icon.png" alt="Mon résultat" width="40" />
+      </div>
+      <h3>Mon résultat</h3>
+      <p>Consultation de vos notes.</p>
+    </a>
+  
+    
+  </div>
+  
+  

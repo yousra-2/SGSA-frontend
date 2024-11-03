@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Etudiant } from '../Models/Etudiant';
+import { ProjetAcademique } from '../Models/ProjetAcadimique';
+import { Enseignant } from '../Models/Enseignant';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +31,30 @@ export class EtudiantService {
       responseType: 'blob' as 'json'
     });
   }
+  getProfil(id_etudiant: number): Observable<Etudiant> {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Etudiant>(`${this.apiUrl}/etudiants/${id_etudiant}`, { headers });
+  }
+
+  getProjetsByEtudiantId(etudiantId: number): Observable<ProjetAcademique[]> {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<ProjetAcademique[]>(`${this.apiUrl}/etudiants/projet/${etudiantId}`, { headers });
+  }
+  
+  addProject(project: ProjetAcademique): Observable<Blob> {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<Blob>(`${this.apiUrl}/etudiants/convention`, project, {
+      headers,
+      responseType: 'blob' as 'json' // Spécifie que la réponse est un fichier Blob
+    });
+  }
+  getAllEnseignants(): Observable<Enseignant[]> {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Enseignant[]>(`${this.apiUrl}/etudiants/enseignants`, { headers });
+  }
+  
 }

@@ -1,0 +1,19 @@
+<div class="header">
+    <app-header></app-header>
+  </div>
+<div class="profil-container" *ngIf="etudiant">
+    <h2>Mon Profil</h2>
+    <div class="profil-info">
+      <p><strong>Nom :</strong> {{ etudiant.lastName}}</p>
+      <p><strong>Prénom :</strong> {{ etudiant.firstName}}</p>
+      <p><strong>Email :</strong> {{ etudiant.email }}</p>
+      <p><strong>Téléphone :</strong> {{ etudiant.phone }}</p>
+      <p><strong>Formation :</strong> {{ etudiant.niveau_etude}}</p>
+      <p><strong>Code apogee :</strong> {{ etudiant.code_appogee}}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="!etudiant">
+    <p>Chargement des informations du profil...</p>
+  </div>
+  

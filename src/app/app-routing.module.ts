@@ -15,6 +15,8 @@ import { ModifierEnseignantComponent } from './Components/directeur-dashboard/mo
 import { DashboardComponent } from './Components/dashboard/dashboard.component';// Correct
 import { ModuleComponent } from './Components/module/module.component';// Correct
 import { FormationComponent } from './Components/formation/formation.component'; // Importez le composant
+import { ProfilComponent } from './Components/profil/profil.component'; 
+import { StagesComponent } from './Components/stages/stages.component'; 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // Nouvelle route pour modifier enseignant
   { path: 'module', component: ModuleComponent }, // Nouvelle route pour modifier enseignant
   { path: 'formation', component: FormationComponent },
+ { path: 'profil', component:ProfilComponent },
+ { path: 'stages', component:StagesComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' } // Redirection vers la page de connexion
 
 ];

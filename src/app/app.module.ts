@@ -22,6 +22,10 @@ import { FormationComponent } from './Components/formation/formation.component';
 // Assurez-vous d'importer ce composant
 import { MatIconModule } from '@angular/material/icon';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HeaderComponent } from './Components/header/header.component';
+import { ProfilComponent } from './Components/profil/profil.component';
+import { StagesComponent } from './Components/stages/stages.component';
+
 
 
 
@@ -38,7 +42,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EtudiantNotesComponent,
     EtudiantAttestationComponent,
     AjouterEnseignantComponent, // Ajoutez ici le composant AjouterEnseignant
-    ModifierEnseignantComponent, DashboardComponent, ModuleComponent  // Ajoutez ici le composant ModifierEnseignant
+    ModifierEnseignantComponent, DashboardComponent, ModuleComponent, HeaderComponent, ProfilComponent, StagesComponent  // Ajoutez ici le composant ModifierEnseignant
   ],
   imports: [
     BrowserModule,
