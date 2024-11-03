@@ -1,0 +1,6 @@
+.table-wrapper {
+    max-width: 800px; /* Largeur maximale du tableau */
+    margin: 0 auto;   /* Centre le tableau horizontalement */
+    padding: 20px;    /* Ajoute un espace autour du tableau */
+  }
+  

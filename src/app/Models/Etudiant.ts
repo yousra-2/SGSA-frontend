@@ -8,5 +8,6 @@ export class Etudiant {
     phone: string;           
     niveau_etude: string;    
     code_appogee: string;    
-    date_inscription: Date;   
+    date_inscription: Date; 
+    Statut: String;  
 }

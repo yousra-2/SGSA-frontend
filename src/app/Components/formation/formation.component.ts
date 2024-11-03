@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
+import { LocalStorageService } from '../../Services/local-storage.service';
 
 @Component({
   selector: 'app-formation',
@@ -22,12 +24,21 @@ export class FormationComponent {
   selectedFormationId: number | null = null;
   isFormVisible: boolean = false; // Pour gérer l'affichage du formulaire
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService, private router: Router) {}
   goBack() {
     this.router.navigate(['/dashboard']);
   }
   ngOnInit(): void {
+
+    if (typeof window !== 'undefined' && localStorage) {
+      // Accéder à localStorage
+      const token = this.localStorageService.get('token');
+      console.log(token);
+    }
+
     this.getFormations();
+
+
   }
 
   addFormation(): void {
@@ -132,4 +143,15 @@ export class FormationComponent {
       this.clearForm(); // Réinitialiser le formulaire lors de la fermeture
     }
   }
+
+  logout(): void {
+    // Supprimer le token du localStorage
+    this.localStorageService.remove('token');
+
+    // Rediriger l'utilisateur vers la page de connexion
+    this.router.navigate(['/login']).then(() => {
+        // Rafraîchir la page après la redirection
+        location.reload();
+    });
+}
 }

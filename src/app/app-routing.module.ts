@@ -17,6 +17,8 @@ import { ModuleComponent } from './Components/module/module.component';// Correc
 import { FormationComponent } from './Components/formation/formation.component'; // Importez le composant
 import { ProfilComponent } from './Components/profil/profil.component'; 
 import { StagesComponent } from './Components/stages/stages.component'; 
+import { EtugestionComponent } from './Components/etugestion/etugestion.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path: 'directeur-dashboard', component: DirecteurDashboardComponent },
   { path: 'etuNotes', component: EtudiantNotesComponent },
   { path: 'etuAttest', component: EtudiantAttestationComponent },
+  { path: 'etugestion', component: EtugestionComponent },
   { path: 'manage-courses/:matiereId', component: ManageCoursesComponent },
   { path: 'manage-students/:matiereId', component: ManageStudentsComponent },
   { path: 'manage-subject/:matiereId', component: ManageSubjectComponent },

@@ -1,0 +1,215 @@
+<div class="header">
+    <app-header></app-header>
+  </div>
+<main>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <div class="search-container">
+        <a style="align-items: center;" routerLink="/dashboard" class="btn btn-primary">
+            <i class="glyphicon glyphicon-arrow-left"></i> 
+            <!-- <i class="fas fa-arrow-left"></i> -->
+        </a>
+        <div class="search-dem">
+            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Rechercher..." class="form-control">
+        </div>
+        <button class="btn btn-primary" (click)="ouvrirToAdd()">Ajouter un étudiant</button>
+    </div>
+
+  
+    <div *ngIf="confirmation" class="confirmation alert alert-success">
+        {{ confirmation }}
+    </div>
+    <div *ngIf="Error" class="error alert alert-error">
+        {{ Error }}
+    </div>
+
+    <div *ngIf="etudiants.length > 0; else noEtudiants" class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <!-- <th>Id</th> -->
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Niveau d'étude</th>
+            <th>Code appogée</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let etudiant of paginatedEtudiants | filter:searchText;">
+            <tr>
+              <!-- <td>{{ etudiant.id }}</td> -->
+              <td>{{ etudiant.firstName }}</td>
+              <td>{{ etudiant.lastName }}</td>
+              <td>{{ etudiant.email }}</td>
+              <td>{{ etudiant.phone }}</td>
+              <td>{{ etudiant.niveau_etude }}</td>
+              <td>{{ etudiant.code_appogee }}</td>
+              <td>
+                  <button class="btn btn-primary" (click)="ouvrirModification(etudiant)" type="button" title="Modifier">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="btn btn-danger" (click)="supprimer(etudiant.id)"  type="button" title="Supprimer">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+
+      <!-- Pagination controls -->
+
+    <div class="pagination-controls d-flex justify-content-between mt-3">
+        <button style="color: rgb(45, 132, 231);" class="btn " (click)="previousPage()" [disabled]="currentPage === 1">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <span style="color: rgb(45, 132, 231);">Page {{ currentPage }}</span>
+        <button style="color: rgb(45, 132, 231);" class="btn " (click)="nextPage()" 
+                [disabled]="currentPage * itemsPerPage >= etudiants.length">
+           <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+    </div>
+    
+  
+    <ng-template #noEtudiants>
+      <p>Aucun étudiant disponible.</p>
+    </ng-template>
+
+ 
+  </main>
+  
+
+<!-- Modale d ajout -->
+<div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">
+                Ajout d'un étudiant
+            </span>
+            <span class="close" (click)="fermer()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+
+            <div *ngIf="confirmationMessage" class="confirmation-message alert alert-success">
+                {{ confirmationMessage }}
+            </div>
+            <div *ngIf="ErrorMessage" class="error-message alert alert-error">
+                {{ ErrorMessage }}
+            </div>
+            <div *ngIf="errorMessageFormIncomplet" class="error2-message alert alert-error">
+                {{ errorMessageFormIncomplet }}
+            </div>
+            
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6"> <!-- Colonne 1 -->
+                        <label class="form-label" for="firstName">Prénom : </label>
+                        <input id="firstName" name="firstName" [(ngModel)]="etudiant.firstName" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="email">Email : </label>
+                        <input id="email" name="email" [(ngModel)]="etudiant.email" type="email" class="form-control" required>
+                        
+                        <label class="form-label" for="password">Mot de passe : </label>
+                        <input id="password" name="password" [(ngModel)]="etudiant.password" type="password" class="form-control" required>
+                        
+                        <label class="form-label" for="phone">Téléphone : </label>
+                        <input id="phone" name="phone" [(ngModel)]="etudiant.phone" type="text" class="form-control" required>
+
+                        <label class="form-label" for="dateInscription">Date d'inscription : </label>
+                        <input id="dateInscription" name="dateInscription" [(ngModel)]="etudiant.date_inscription" type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6"> <!-- Colonne 2 -->
+                        <label class="form-label" for="lastName">Nom : </label>
+                        <input id="lastName" name="lastName" [(ngModel)]="etudiant.lastName" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="username">Nom d'utilisateur : </label>
+                        <input id="username" name="username" [(ngModel)]="etudiant.username" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="niveauEtude">Niveau d'étude : </label>
+                        <input id="niveauEtude" name="niveauEtude" [(ngModel)]="etudiant.niveau_etude" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="codeAppogee">Code appogée : </label>
+                        <input id="codeAppogee" name="codeAppogee" [(ngModel)]="etudiant.code_appogee" type="text" class="form-control" required>
+                        
+                        </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-pri me-2" type="submit">Enregistrer</button>
+                    <button class="btn btn-secondary" type="button" (click)="resetForm()">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modale de modification -->
+<div *ngIf="showModal && isEditMode" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">
+        Modification d'étudiant : {{etudiant.lastName}}
+      </span>
+            <span class="close" (click)="fermer()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+  
+            <div *ngIf="confirmationMessage" class="confirmation-message alert alert-success">
+        {{ confirmationMessage }}
+    </div>
+    <div *ngIf="ErrorMessage" class="error-message alert alert-error">
+        {{ ErrorMessage }}
+    </div>
+    <div *ngIf="errorMessageFormIncomplet" class="error2-message alert alert-error">
+        {{ errorMessageFormIncomplet }}
+    </div>
+    
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6"> <!-- Colonne 1 -->
+                        <label class="form-label" for="firstName">Prénom : </label>
+                        <input id="firstName2" name="firstName" [(ngModel)]="etudiant.firstName" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="email">Email : </label>
+                        <input id="email2" name="email" [(ngModel)]="etudiant.email" type="email" class="form-control" required>
+                        
+                        <label class="form-label" for="password">Mot de passe : </label>
+                        <input id="password2" name="password" [(ngModel)]="etudiant.password" type="password" class="form-control" required>
+                        
+                        <label class="form-label" for="phone">Téléphone : </label>
+                        <input id="phone2" name="phone" [(ngModel)]="etudiant.phone" type="text" class="form-control" required>
+
+                        <label class="form-label" for="dateInscription">Date d'inscription : </label>
+                        <input id="dateInscription2" name="dateInscription" [(ngModel)]="etudiant.date_inscription" type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6"> <!-- Colonne 2 -->
+                        <label class="form-label" for="lastName">Nom : </label>
+                        <input id="lastName2" name="lastName" [(ngModel)]="etudiant.lastName" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="username">Nom d'utilisateur : </label>
+                        <input id="username2" name="username" [(ngModel)]="etudiant.username" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="niveauEtude">Niveau d'étude : </label>
+                        <input id="niveauEtude2" name="niveauEtude" [(ngModel)]="etudiant.niveau_etude" type="text" class="form-control" required>
+                        
+                        <label class="form-label" for="codeAppogee">Code appogée : </label>
+                        <input id="codeAppogee2" name="codeAppogee" [(ngModel)]="etudiant.code_appogee" type="text" class="form-control" required>
+                        </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-pri me-2" type="submit">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+
+  

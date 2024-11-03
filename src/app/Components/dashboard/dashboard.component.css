@@ -1,14 +1,55 @@
-.dashboard-container {
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .service-card {
+    width: 200px;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .service-card .icon {
+    margin-bottom: 10px;
+  }
+  
+  .service-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .service-card p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+
+/* .dashboard-container {
     display: flex;
     height: 100vh;
     background-color: #f4f6f9;
     font-family: Arial, sans-serif;
     transition: background-color 0.3s;
 }
+.icon-spacing {
+    margin-right: 8px; 
+}
+
 
 .sidebar {
     width: 250px;
-    background-color: #d1d5f7; /* Bleu foncé pour une apparence moderne */
+    background-color: #d1d5f7; 
     color: #030a31;
     padding: 20px;
     transition: width 0.3s, transform 0.3s;
@@ -80,4 +121,4 @@
 
 .main-content.hidden-sidebar {
     margin-left: 80px;
-}
+} */

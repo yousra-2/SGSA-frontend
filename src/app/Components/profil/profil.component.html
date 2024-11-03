@@ -2,6 +2,10 @@
     <app-header></app-header>
   </div>
 <div class="profil-container" *ngIf="etudiant">
+  <a style="align-items: center;" routerLink="/etudiant-dashboard" class="btn btn-primary">
+    <i class="glyphicon glyphicon-arrow-left"></i> 
+    <!-- <i class="fas fa-arrow-left"></i> -->
+</a>
     <h2>Mon Profil</h2>
     <div class="profil-info">
       <p><strong>Nom :</strong> {{ etudiant.lastName}}</p>

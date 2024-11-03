@@ -44,6 +44,10 @@ h1 {
   background-color: #007bff;
   border-color: #007bff;
   transition: background-color 0.3s ease;
+  font-size: medium;
+}
+.btn-secondary{
+  font-size: medium;
 }
 
 .btn-primary:hover {

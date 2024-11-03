@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../../Services/local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ isSidebarVisible: boolean = true;
 // }
 
 
-  constructor(private router: Router) {} // Injection du router
+  constructor(private router: Router, private localStorageService: LocalStorageService) {} // Injection du router
 
   ngOnInit(): void {
     // Initialisation, aucune statistique à charger
@@ -33,9 +34,18 @@ isSidebarVisible: boolean = true;
   navigateToEnseignants(): void {
     this.router.navigate(['/directeur-dashboard']); // Redirige vers la page de gestion des enseignants
   }
+  navigateToEtudiants(): void {
+    this.router.navigate(['/etugestion']); // Redirige vers la page de gestion des enseignants
+  }
 
   logout(): void {
-    // Logique de déconnexion ici (par exemple, suppression des informations d'authentification)
-    this.router.navigate(['/login']); // Redirige vers la page de connexion
-  }
+    // Supprimer le token du localStorage
+    this.localStorageService.remove('token');
+
+    // Rediriger l'utilisateur vers la page de connexion
+    this.router.navigate(['/login']).then(() => {
+        // Rafraîchir la page après la redirection
+        location.reload();
+    });
+}
 }

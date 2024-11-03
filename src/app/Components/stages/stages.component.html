@@ -4,6 +4,15 @@
 <!-- Affichage des projets existants -->
 <div *ngIf="projets.length > 0; else noProjects">
   <h1>Mes Projets Académiques</h1>
+
+  <a style="align-items: center; margin-left: 20px;" routerLink="/etudiant-dashboard" class="btn btn-primary">
+    <i class="glyphicon glyphicon-arrow-left"></i> 
+    <!-- <i class="fas fa-arrow-left"></i> -->
+</a>
+
+<!-- Bouton pour ouvrir le formulaire d'ajout de projet -->
+<button style="margin-left: 1260px;" class="btn btn-primary" (click)="ouvrirModal()">Ajouter un nouveau projet</button>
+
   <div *ngFor="let projet of projets" class="projet-card">
     <h3>{{ projet.titre }}</h3>
     <p><strong>Sujet:</strong> {{ projet.sujet }}</p>
@@ -18,8 +27,7 @@
   <p>Aucun projet académique trouvé.</p>
 </ng-template>
 
-<!-- Bouton pour ouvrir le formulaire d'ajout de projet -->
-<button class="btn btn-primary" (click)="ouvrirModal()">Ajouter un nouveau projet</button>
+
 
 <!-- Modal pour l'ajout d'un nouveau projet -->
 <div *ngIf="showModal" class="modal">

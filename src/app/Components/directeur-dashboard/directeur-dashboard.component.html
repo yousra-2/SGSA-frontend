@@ -1,22 +1,28 @@
+<div class="header">
+    <app-header></app-header>
+  </div>
 <div class="sidebar">
     <!-- Logo ENSA -->
    
 
     <div class="container">
-        <div class="text-right mb-3">
+        <!-- <div class="text-right mb-3">
             <a routerLink="/dashboard" class="btn btn-secondary">
                 <i class="glyphicon glyphicon-arrow-left"></i> Retour
             </a>
-        </div> <!-- Back button -->
+        </div>  -->
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <h2>Gestion des <b>enseignants</b></h2>
+                        <!-- <h2>Gestion des <b>enseignants</b></h2> -->
+                        <a routerLink="/dashboard" class="btn btn-primary">
+                            <i class="glyphicon glyphicon-arrow-left"></i> 
+                        </a>
                     </div>
                     <div class="col-sm-6 d-flex justify-content-end">
-                        <button class="btn btn-success d-flex align-items-center" (click)="navigateToAddEnseignant()">
-                            <i class="material-icons">&#xE147;</i>
+                        <button class="btn btn-primary d-flex align-items-center" (click)="navigateToAddEnseignant()">
+                            <!-- <i class="material-icons">&#xE147;</i> -->
                             <span>Ajouter Enseignant</span>
                         </button>
                     </div>

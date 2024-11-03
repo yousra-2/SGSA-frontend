@@ -1,33 +1,84 @@
+<div class="header">
+    <app-header></app-header>
+  </div>
+  
+  <div class="dashboard">
+    <a class="service-card" [routerLink]="['/module']">
+      <div class="icon">
+        <img src="assets/icons/results-icon.png" alt="Mon profil" width="40" /> 
+      </div>
+      <h3>Gérer Modules</h3>
+      <p>Gérez les modules et programmez des cours.</p>
+    </a>
+  
+    <a class="service-card" [routerLink]="['/formation']">
+      <div class="icon">
+        <img src="assets/icons/attest.png" alt="Attestation de scolarité" width="40" />
+      </div>
+      <h3>Gérer Formation</h3>
+      <p>Ajouter des informations de formation.</p>
+    </a>
+  
+    <a class="service-card" [routerLink]="['/directeur-dashboard']">
+      <div class="icon">
+        <img src="assets/icons/stages-icon.png" alt="Stages" width="40" />
+      </div>
+      <h3>Gérer Enseignants</h3>
+      <p>Organisez, ajouter ou modifier les information d'un enseignant du département.</p>
+    </a>
+  
+    <a class="service-card" [routerLink]="['/etugestion']">
+      <div class="icon">
+        <img src="assets/icons/profile-icon.png" alt="Mon résultat" width="40" />
+      </div>
+      <h3>Gérer Étudiants</h3>
+      <p>Organisez, ajouter ou modifier les information des étudiants de l'école.</p>
+    </a>
+  </div>
+  
+
 <div class="dashboard-container">
+
+    
+
     <!-- Sidebar -->
-    <aside class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}">
+    <!-- <aside class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}">
+
        
         <div class="logo-container">
             <img src="assets/img/logo-ensa.png" alt="Logo ENSA" class="logo-ensa">
-        </div>
+        </div> -->
        
-        <ul>
+
+        <!-- <button mat-icon-button (click)="toggleSidebar()" class="toggle-sidebar-btn">
+            <mat-icon *ngIf="!isSidebarVisible">{{ 'menu' }}</mat-icon>
+            <mat-icon *ngIf="isSidebarVisible">{{ 'menu_open' }}</mat-icon>
+        </button> -->
+        <!-- <h2 *ngIf="isSidebarVisible">Gestion</h2> -->
+
+        <!-- <ul>
             <li (click)="navigateToModules()">
-                <mat-icon>dashboard</mat-icon> <span *ngIf="isSidebarVisible">Gérer Modules</span>
+                <mat-icon class="icon-spacing">dashboard</mat-icon> <span *ngIf="isSidebarVisible">Gérer Modules</span>
             </li>
             <li (click)="navigateToFormation()">
-                <mat-icon>school</mat-icon> <span *ngIf="isSidebarVisible">Gérer Formation</span>
+                <mat-icon class="icon-spacing">school</mat-icon> <span *ngIf="isSidebarVisible">Gérer Formation</span>
             </li>
             <li (click)="navigateToEnseignants()">
-                <mat-icon>people</mat-icon> <span *ngIf="isSidebarVisible">Gérer Enseignants</span>
+                <mat-icon class="icon-spacing">people</mat-icon> <span *ngIf="isSidebarVisible">Gérer Enseignants</span>
             </li>
-            <li *ngIf="isSidebarVisible">
-                <mat-icon>group</mat-icon> Gérer Étudiants
+            <li (click)="navigateToEtudiants()">
+                <mat-icon class="icon-spacing">group</mat-icon> <span *ngIf="isSidebarVisible">Gérer Étudiants</span> 
             </li>
             <li class="logout" (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon> <span *ngIf="isSidebarVisible">Déconnexion</span>
+                <mat-icon class="icon-spacing">exit_to_app</mat-icon> <span *ngIf="isSidebarVisible">Déconnexion</span>
             </li>
         </ul>
-    </aside>
+        
+    </aside> -->
 
     <!-- Contenu principal -->
-    <main class="main-content" [class.hidden-sidebar]="!isSidebarVisible">
+    <!-- <main class="main-content" [class.hidden-sidebar]="!isSidebarVisible">
         <h1>Tableau de Bord du Directeur</h1>
         <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-    </main>
+    </main> -->
 </div>
