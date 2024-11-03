@@ -1,53 +1,69 @@
 .container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-  }
   
-  h1 {
-    text-align: center;
-    color: #3f51b5; /* Angular Material primary color */
-  }
-  
-  .error-message {
-    background-color: #f44336;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .mat-card {
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .projets-table {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .mat-table {
-    border: 1px solid #ddd;
-  }
-  
-  .mat-header-cell {
-    background-color: #3f51b5;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .mat-cell {
-    text-align: center;
-  }
-  
-  .mat-row:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .mat-header-row {
-    border-bottom: 2px solid #3f51b5;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #ffffff; /* Fond blanc pour une apparence propre */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police moderne */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre douce pour le conteneur */
+  border-radius: 10px; /* Coins arrondis */
+  margin-top:2cm ;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50; /* Couleur sombre pour le titre */
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Ombre portée pour le texte */
+}
+
+
+.error-message {
+  background-color: #f8d7da; /* Fond rose clair */
+  color: #721c24; /* Texte rouge foncé */
+  border: 1px solid #f5c6cb; /* Bordure rose clair */
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 8px; /* Coins arrondis */
+}
+
+.projets-table {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  border-collapse: collapse; /* Supprimer les espaces entre les cellules */
+}
+
+mat-header-cell, mat-cell {
+  padding: 12px;
+  font-size: 1rem;
+  text-align: left; /* Alignement à gauche pour les données */
+}
+
+mat-header-cell {
+  background-color: #4CAF50; /* Vert moderne pour l'en-tête */
+  color: #110808; /* Texte blanc */
+  font-weight: bold;
+}
+
+mat-cell {
+  color: #555555; /* Texte gris pour les cellules */
+  border-bottom: 1px solid #dddddd; /* Bordure pour séparer les lignes */
+}
+
+mat-row:nth-child(even) mat-cell {
+  background-color: #f9f9f9; /* Fond gris très clair pour les lignes paires */
+}
+
+mat-row:hover mat-cell {
+  background-color: #e0e0e0; /* Fond gris au survol */
+}
+
+p {
+  color: #777777; /* Texte gris pour les paragraphes */
+  font-size: 1rem;
+}

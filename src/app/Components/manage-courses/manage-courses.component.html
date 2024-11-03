@@ -1,69 +1,53 @@
-<!-- 
 <div class="container">
-  <h1>Gérer les Cours pour Matière ID: {{ matiereId }}</h1>
   <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
 
-  <table *ngIf="courses.length > 0">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nom du Cours</th>
-        <th>PDF</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let course of courses">
-        <td>{{ course.id }}</td>
-        <td>{{ course.nom }}</td>
-        <td><a [href]="course.pdfUrl" target="_blank">Télécharger</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p *ngIf="courses.length === 0">Aucun cours disponible pour cette matière.</p>
-</div> -->
-<div class="container">
-  <h1>Gérer les Cours pour Matière ID: {{ matiereId }}</h1>
-  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-
-  <!-- Formulaire d'ajout de cours -->
-  <div>
-    <h2>Ajouter un Cours</h2>
-    <label>
-      Nom du Cours:
-      <input type="text" [(ngModel)]="newCourse.nom" />
-    </label>
-    <label>
-      Fichier PDF:
-      <input type="file" (change)="onFileChange($event)" accept=".pdf" />
-    </label>
-    <button (click)="addCourse()">Ajouter le Cours</button>
+  <div class="form-toggle">
+    <button (click)="toggleForm()" class="btn btn-secondary">
+      <i class="fas fa-plus"></i>
+      Ajouter un Cours
+    </button>
+    <button (click)="viewStudents()" class="btn btn-secondary">
+      <i class="fas fa-users"></i> <!-- Add your student icon here -->
+      Liste des Étudiants
+    </button>
   </div>
-  <div class="container">
-    <h1>Gérer les Cours pour Matière ID: {{ matiereId }}</h1>
-    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-  
-    <table *ngIf="courses.length > 0">
+
+  <div class="form-section" *ngIf="showForm"> <!-- Show the form only if showForm is true -->
+    <h2>Ajouter un Cours</h2>
+    <div class="form-group">
+      <label for="courseName">Nom du Cours:</label>
+      <input id="courseName" type="text" [(ngModel)]="newCourse.nom" class="form-control" placeholder="Entrez le nom du cours" />
+    </div>
+    <div class="form-group">
+      <label for="pdfFile">Fichier PDF:</label>
+      <input id="pdfFile" type="file" (change)="onFileChange($event)" accept=".pdf" class="form-control" />
+    </div>
+    <button (click)="addCourse()" class="btn btn-primary">Ajouter le Cours</button>
+  </div>
+
+  <div class="table-section">
+    <h2>Liste des Cours</h2>
+    <table *ngIf="courses.length > 0" class="courses-table">
       <thead>
         <tr>
           <th>ID</th>
           <th>Nom du Cours</th>
           <th>PDF</th>
-          <th>Actions</th> <!-- Colonne pour les actions -->
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let course of courses">
           <td>{{ course.id }}</td>
           <td>{{ course.nom }}</td>
-          <td><a [href]="course.pdfUrl" target="_blank">Télécharger</a></td>
+          <td><a [href]="course.pdfUrl" target="_blank" class="btn btn-link">Télécharger</a></td>
           <td>
-            <button (click)="deleteCourse(course.id)">Supprimer</button> <!-- Bouton de suppression -->
+            <button (click)="deleteCourse(course.id)" class="btn btn-danger">Supprimer</button> 
           </td>
         </tr>
       </tbody>
     </table>
   
-    <p *ngIf="courses.length === 0">Chargement en cours .</p>
+    <p *ngIf="courses.length === 0">Aucun cours disponible.</p>
   </div>
-  
+</div>

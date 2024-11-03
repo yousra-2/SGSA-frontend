@@ -1,75 +1,15 @@
-<!-- <div class="container">
-  <h1>Gérer les Étudiants pour Matière ID: {{ matiereId }}</h1>
-  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-
-  <table *ngIf="studentNotes.length > 0">
-    <thead>
-      <tr>
-        <th>Nom de l'Étudiant</th>
-        <th>Prénom de l'Étudiant</th>
-        <th>Note</th>
-        <th>Modifier</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let studentNote of studentNotes">
-        <td>{{ studentNote.etudiantLastName }}</td>
-        <td>{{ studentNote.etudiantFirstName }}</td>
-        <td>
-          <input [(ngModel)]="studentNote.valeur" type="number" />
-        </td>
-        <td>
-          <button (click)="updateNote(studentNote.etudiantId, matiereId, studentNote.valeur)">
-            Mettre à jour
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p *ngIf="studentNotes.length === 0">Aucun étudiant trouvé pour cette matière.</p>
-</div> -->
-
-<!-- 
-
-<div>
-  <h2>Gérer les Étudiants</h2>
-  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-
-  <table>
-      <thead>
-          <tr>
-              <th>Prénom</th>
-              <th>Nom</th>
-              <th>id</th>
-              <th>Note</th>
-              <th>Matière</th>
-              <th>Actions</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let student of studentNotes">
-              <td>{{ student.etudiantFirstName }}</td>
-              <td>{{ student.etudiantLastName }}</td>
-              <td>{{ student.id_etudiant }}</td>
-              <td>
-                  <input [(ngModel)]="student.valeur" type="number" />
-              </td>
-              <td>{{ student.matiereNom }}</td>
-              <td>
-                  <button (click)="updateNote(student.id_etudiant, matiereId, student.valeur)">Mettre à jour</button>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-</div> -->
-
-
-<div *ngFor="let note of studentNotes">
-  <div>
-    <span>{{ note.etudiantFirstName }} {{ note.etudiantLastName }}</span>
-    <input type="number" [(ngModel)]="note.valeur" placeholder="Note" />
+<body>
+  <div class="page-container">
+    <h1>Gestion des Étudiants</h1>
+    <div class="container">
+      <div class="student-grid">
+        <div *ngFor="let note of studentNotes" class="student-card">
+          <span class="student-name">{{ note.etudiantFirstName }} {{ note.etudiantLastName }}</span>
+          <input type="number" [(ngModel)]="note.valeur" class="note-input" placeholder="Note" />
+        </div>
+      </div>
+      <button class="update-all-button" (click)="updateAllNotes()">Mettre à jour toutes les notes</button>
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </div>
   </div>
-</div>
-<button (click)="updateAllNotes()">Mettre à jour toutes les notes</button>
-<p *ngIf="errorMessage">{{ errorMessage }}</p>
+</body>

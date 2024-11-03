@@ -29,12 +29,22 @@ export class EnseignantDashboardComponent implements OnInit {
   matieres: Matiere[] = [];
   errorMessage: string = '';
   enseignantId: string | null = null;  // ID de l'enseignant
+  selectedMatiere: number | null = null; // ID de la matière sélectionnée
 
   constructor(private http: HttpClient, private router: Router) {}
-
+  logout() {
+    // Your logout logic here
+    // This might involve clearing user data, redirecting to a login page, etc.
+    this.router.navigate(['/login']);
+  }
+  
   ngOnInit(): void {
     this.enseignantId = localStorage.getItem('id_enseignant');
     this.loadMatieres();
+  }
+
+  toggleDropdown(matiereId: number): void {
+    this.selectedMatiere = this.selectedMatiere === matiereId ? null : matiereId;
   }
 
   loadMatieres(): void {

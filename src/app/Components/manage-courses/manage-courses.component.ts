@@ -28,7 +28,16 @@ export class ManageCoursesComponent implements OnInit {
   matiereId!: number;
   courses: Course[] = [];
   errorMessage: string = '';
-
+  showForm: boolean = false; // Property to control form visibility
+  toggleForm(): void {
+    this.showForm = !this.showForm; // Toggle the form's visibility
+  }
+  viewStudents(): void {
+    // Implement logic to navigate to student listing or show student list
+    this.router.navigate(['/manage-students', this.matiereId]);
+    //  <a [routerLink]="['/manage-students', matiereId]">Gérer Étudiants</a>
+    console.log('Navigating to student list...');
+  }
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -87,7 +96,7 @@ export class ManageCoursesComponent implements OnInit {
         }
       },
       (error) => {
-        console.error('Erreur lors du chargement des cours:', error);
+        console.error('', error);
         this.handleError(error);
       }
     );
@@ -103,8 +112,8 @@ export class ManageCoursesComponent implements OnInit {
       this.router.navigate(['/login']);
     } else {
       this.errorMessage = 
-        'Erreur lors de la récupération des cours : ' + 
-        (error.message || 'Erreur inconnue');
+        '' + 
+        ('');
     }
   }
   onFileChange(event: Event): void {

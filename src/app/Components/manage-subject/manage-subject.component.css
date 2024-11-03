@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9; /* Couleur de fond douce */
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    height: 100vh; /* Hauteur de la vue complète */
+  }
+  
+  .container {
+    max-width: 800px; /* Largeur maximum de la boîte */
+    padding: 20px;
+    background-color: #ffffff; /* Fond blanc pour la boîte */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre légère pour profondeur */
+    text-align: center; /* Centrer le texte à l'intérieur de la boîte */
+    border: 1px solid #000;
+  }
+  
+  h1 {
+    font-size: 28px; /* Taille de la police pour le titre */
+    color: #333; /* Couleur du texte du titre */
+    margin-bottom: 20px; /* Espace sous le titre */
+  }
+  
+  p {
+    font-size: 16px; /* Taille de la police pour le paragraphe */
+    color: #555; /* Couleur du texte */
+    margin-bottom: 20px; /* Espace sous le paragraphe */
+  }
+  
+  ul {
+    list-style-type: none; /* Pas de puces pour la liste */
+    padding: 0; /* Pas de remplissage */
+  }
+  
+  ul li {
+    margin-bottom: 15px; /* Espace entre les éléments de la liste */
+  }
+  
+  ul li a {
+    display: inline-block; /* Transformer le lien en bouton */
+    width: 100%; /* Prendre toute la largeur de l'élément parent */
+    padding: 12px; /* Remplissage interne du lien */
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: #ffffff; /* Couleur du texte du bouton */
+    font-size: 16px; /* Taille de la police */
+    font-weight: bold; /* Mettre en gras le texte */
+    text-decoration: none; /* Pas de soulignement */
+    border-radius: 6px; /* Coins arrondis pour le bouton */
+    transition: all 0.3s ease; /* Animation au survol */
+  }
+  
+  ul li a:hover {
+    background-color: #0056b3; /* Couleur au survol */
+    transform: translateY(-2px); /* Léger décalage vers le haut */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Ombre plus forte au survol */
+  }
+  

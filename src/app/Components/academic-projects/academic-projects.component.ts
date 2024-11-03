@@ -48,14 +48,10 @@ export class AcademicProjectsComponent implements OnInit {
   errorMessage: string = '';
   enseignantId: string | null = null;
   displayedColumns: string[] = [
-    'id', 
-    'date_affectation', 
-    'dateUniversitaire', 
-    'statut', 
+    
+   
     'titre', 
     'type', 
-    'enseignant_id', 
-    'etudiant_id', 
     'nom_etudiant', 
     'sujet', 
     'datedebut', 
