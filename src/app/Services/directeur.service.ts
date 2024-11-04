@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { Observable } from 'rxjs';
 import { Etudiant } from '../Models/Etudiant';
+import { Formation } from '../Models/Formation';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,13 @@ export class DirecteurService {
     const token = this.localStorageService.get('token'); // Récupérer le token stocké
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Ajouter le token au header
     return this.http.post<any>(`${this.apiUrl}/directeurs/register/etudiant`, etudiant,{ headers });
+  }
+
+  getFormations(): Observable<Formation[]> {
+
+    const token = this.localStorageService.get('token'); // Récupérer le token stocké
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`); // Ajouter le token au header
+    return this.http.get<Formation[]>(`${this.apiUrl}/directeurs/api/formations`,{ headers });
   }
 
   SupprimerEtudiant(id_etudiant: number): Observable<any> {

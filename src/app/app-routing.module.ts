@@ -18,6 +18,8 @@ import { FormationComponent } from './Components/formation/formation.component';
 import { ProfilComponent } from './Components/profil/profil.component'; 
 import { StagesComponent } from './Components/stages/stages.component'; 
 import { EtugestionComponent } from './Components/etugestion/etugestion.component';
+import { CoursComponent } from './Components/cours/cours.component';
+import { MatiereComponentComponent } from './Components/matiere-component/matiere-component.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,9 @@ const routes: Routes = [
   { path: 'formation', component: FormationComponent },
  { path: 'profil', component:ProfilComponent },
  { path: 'stages', component:StagesComponent },
+ { path: 'cours', component:CoursComponent },
+ { path: 'matiers', component:MatiereComponentComponent },
+ 
   { path: '', redirectTo: '/login', pathMatch: 'full' } // Redirection vers la page de connexion
 
 ];

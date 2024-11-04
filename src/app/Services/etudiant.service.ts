@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Etudiant } from '../Models/Etudiant';
 import { ProjetAcademique } from '../Models/ProjetAcadimique';
 import { Enseignant } from '../Models/Enseignant';
+import { Matiere } from '../Models/Matiere';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,16 @@ export class EtudiantService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<Enseignant[]>(`${this.apiUrl}/etudiants/enseignants`, { headers });
   }
+  getMatieresByEtudiantId(etudiantId: number): Observable<Matiere[]> {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Matiere[]>(`${this.apiUrl}/etudiants/matiers/${etudiantId}`, { headers });
+  }
+  getCoursByMatiereId(matiereId: number): Observable<any[]> {
+    const token = this.localStorageService.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>(`${this.apiUrl}/matieres/${matiereId}/cours`, { headers });
+  }
+  
   
 }

@@ -132,9 +132,12 @@
                         <label class="form-label" for="username">Nom d'utilisateur : </label>
                         <input id="username" name="username" [(ngModel)]="etudiant.username" type="text" class="form-control" required>
                         
-                        <label class="form-label" for="niveauEtude">Niveau d'étude : </label>
-                        <input id="niveauEtude" name="niveauEtude" [(ngModel)]="etudiant.niveau_etude" type="text" class="form-control" required>
-                        
+                        <label class="form-label" for="niveauEtude">Niveau d'étude :</label>
+<select id="niveauEtude" name="niveauEtude" [(ngModel)]="etudiant.niveau_etude" class="form-control" required>
+  <option *ngFor="let formation of formations" [value]="formation.nom">
+    {{ formation.nom }}
+  </option>
+</select>
                         <label class="form-label" for="codeAppogee">Code appogée : </label>
                         <input id="codeAppogee" name="codeAppogee" [(ngModel)]="etudiant.code_appogee" type="text" class="form-control" required>
                         

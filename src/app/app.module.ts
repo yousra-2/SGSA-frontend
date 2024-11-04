@@ -31,6 +31,9 @@ import { EtugestionComponent } from './Components/etugestion/etugestion.componen
 
 import { NgxSearchFilterModule } from 'ngx-search-filter';
 
+import { CoursComponent } from './Components/cours/cours.component';
+import { MatiereComponentComponent } from './Components/matiere-component/matiere-component.component';
+
 
 
 
@@ -48,7 +51,7 @@ import { NgxSearchFilterModule } from 'ngx-search-filter';
     EtudiantAttestationComponent,
     AjouterEnseignantComponent, // Ajoutez ici le composant AjouterEnseignant
 
-    ModifierEnseignantComponent, DashboardComponent, ModuleComponent, HeaderComponent, ProfilComponent, StagesComponent, EtugestionComponent   // Ajoutez ici le composant ModifierEnseignant
+    ModifierEnseignantComponent, DashboardComponent, ModuleComponent, HeaderComponent, ProfilComponent, StagesComponent, EtugestionComponent, CoursComponent, MatiereComponentComponent   // Ajoutez ici le composant ModifierEnseignant
 
   ],
   imports: [

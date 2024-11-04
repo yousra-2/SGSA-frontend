@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DirecteurService } from '../../Services/directeur.service';
 import { Etudiant } from '../../Models/Etudiant';
+import { Formation } from '../../Models/Formation';
 
 @Component({
   selector: 'app-etugestion',
@@ -26,6 +27,7 @@ export class EtugestionComponent {
   confirmation: String;
   Error: String;
   errorMessageFormIncomplet: String;
+  formations: Formation[] = [];
 
   constructor(private apidirecteur: DirecteurService) { }
   
@@ -35,6 +37,10 @@ export class EtugestionComponent {
       console.log(response);
       this.etudiants = response;
       this.updatePaginatedEtudiants();
+    });
+
+    this.apidirecteur.getFormations().subscribe(data => {
+      this.formations = data;
     });
   }
 

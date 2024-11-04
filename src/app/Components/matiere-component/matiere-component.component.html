@@ -1,0 +1,25 @@
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="dv">
+    <h2>Matières</h2>
+    <ul>
+      <li *ngFor="let matiere of matieres">
+        {{ matiere.nom }}
+        <button (click)="getCoursForMatiere(matiere.id)">Afficher les cours</button>
+        
+        <ul *ngIf="cours[matiere.id]">
+          <li *ngFor="let cour of cours[matiere.id]">
+            {{ cour.nom }}
+            <a *ngIf="cour.contenuUrl" 
+               [href]="cour.contenuUrl" 
+               target="_blank" 
+               download="{{ cour.nom }}.pdf">
+               Télécharger
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
