@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';  // Ajout de RouterModule
+import { LocalStorageService } from '../../Services/local-storage.service';
 
 interface Matiere {
   id: number;
@@ -31,13 +32,17 @@ export class EnseignantDashboardComponent implements OnInit {
   enseignantId: string | null = null;  // ID de l'enseignant
   selectedMatiere: number | null = null; // ID de la matière sélectionnée
 
-  constructor(private http: HttpClient, private router: Router) {}
-  logout() {
-    // Your logout logic here
-    // This might involve clearing user data, redirecting to a login page, etc.
-    this.router.navigate(['/login']);
-  }
-  
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService, private router: Router) {}
+  logout(): void {
+    // Supprimer le token du localStorage
+    this.localStorageService.remove('token');
+
+    // Rediriger l'utilisateur vers la page de connexion
+    this.router.navigate(['/login']).then(() => {
+        // Rafraîchir la page après la redirection
+        location.reload();
+    });
+}
   ngOnInit(): void {
     this.enseignantId = localStorage.getItem('id_enseignant');
     this.loadMatieres();
